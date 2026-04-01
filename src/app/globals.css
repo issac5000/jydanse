@@ -1,26 +1,262 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #fefcfd;
+  --color-foreground: #1a0a12;
+
+  /* Refined pastel palette — rose + ciel */
+  --color-rose-50: #fef5f8;
+  --color-rose-100: #fde8ef;
+  --color-rose-200: #fbd0df;
+  --color-rose-300: #f7a8c4;
+  --color-rose-400: #f07aaa;
+  --color-rose-500: #e54d8a;
+  --color-rose-600: #c4296e;
+  --color-rose-700: #9e1d56;
+  --color-rose-800: #7a1845;
+
+  --color-ciel-50: #f2f7fd;
+  --color-ciel-100: #e3eefa;
+  --color-ciel-200: #c1daf6;
+  --color-ciel-300: #8bbced;
+  --color-ciel-400: #5a9de3;
+  --color-ciel-500: #3580d1;
+  --color-ciel-600: #2563b0;
+  --color-ciel-700: #1f4f8f;
+  --color-ciel-800: #1e4477;
+
+  --color-blush: #f9e8ef;
+  --color-blush-deep: #f0d0df;
+  --color-frost: #eaf2fc;
+  --color-frost-deep: #d4e4f8;
+  --color-cream: #fdfaf7;
+
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* === PREMIUM TYPOGRAPHY === */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* === ORGANIC SHAPES / BLOBS === */
+@keyframes blob-morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+  75% { border-radius: 60% 30% 60% 40% / 60% 40% 30% 70%; }
+}
+
+.blob {
+  animation: blob-morph 20s ease-in-out infinite;
+}
+
+.blob-alt {
+  animation: blob-morph 25s ease-in-out infinite reverse;
+}
+
+/* === FLOATING MOTION === */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(0.5deg); }
+  66% { transform: translateY(4px) rotate(-0.3deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+/* === GRADIENT MESH === */
+@keyframes gradient-drift {
+  0%, 100% { background-position: 0% 0%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+.gradient-mesh {
+  background-size: 400% 400%;
+  animation: gradient-drift 30s ease infinite;
+}
+
+/* === GRAIN OVERLAY === */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* === GLASS CARDS === */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(32px) saturate(1.6);
+  -webkit-backdrop-filter: blur(32px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* === DIAGONAL DIVIDERS === */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.clip-diagonal-reverse {
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* === GLOW EFFECTS === */
+.glow-rose {
+  box-shadow: 0 0 60px -12px rgba(229, 77, 138, 0.25),
+              0 0 120px -24px rgba(229, 77, 138, 0.12);
+}
+
+.glow-ciel {
+  box-shadow: 0 0 60px -12px rgba(53, 128, 209, 0.25),
+              0 0 120px -24px rgba(53, 128, 209, 0.12);
+}
+
+/* === PREMIUM BUTTON SHINE === */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 55%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* === REVEAL ANIMATIONS (CSS-only fallback) === */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.reveal-up {
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-scale {
+  animation: reveal-scale 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* === STAGGERED DELAYS === */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* === CURSOR TRAIL (decorative) === */
+.cursor-glow {
+  cursor: none;
+}
+
+/* === MARQUEE === */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* === LINK UNDERLINE ANIMATION === */
+.link-fancy {
+  position: relative;
+  display: inline-block;
+}
+
+.link-fancy::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-rose-400), var(--color-ciel-400));
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 999px;
+}
+
+.link-fancy:hover::after {
+  width: 100%;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-rose-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-rose-300), var(--color-ciel-300));
+  border-radius: 999px;
+}
+
+/* === SELECTION === */
+::selection {
+  background: var(--color-rose-200);
+  color: var(--color-rose-800);
 }

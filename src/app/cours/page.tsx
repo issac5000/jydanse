@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, CheckCircle2, Music, Zap, Star, Users } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -90,16 +91,22 @@ export default function CoursPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-12 pb-20 sm:pb-28 overflow-hidden grain">
+      <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
         <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-white to-ciel-50" />
-        <div className="absolute top-20 right-[10%] w-[400px] h-[400px] bg-rose-200/15 blob animate-float-slow" />
-        <div className="absolute bottom-0 left-[5%] w-[300px] h-[300px] bg-ciel-200/15 blob-alt" />
+        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
+        <Image
+          src="/logojydanse.png"
+          alt="Logo J'y Danse"
+          width={180}
+          height={258}
+          className="hidden lg:block absolute top-1/2 -translate-y-1/3 right-[8%] lg:right-[12%] drop-shadow-lg opacity-25"
+        />
 
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div className="relative h-full flex items-center mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-8 h-px bg-rose-300" />
-              <span className="text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-rose-400">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-rose-400">
                 4 disciplines, tous niveaux
               </span>
             </div>
@@ -110,11 +117,6 @@ export default function CoursPage() {
               On y apprend des pas, des figures et le sens du rythme.
               Cavalier et dame découvrent chaque pas séparément avant
               de l&apos;exécuter en couple, guidés par le professeur.
-            </p>
-            <p className="mt-4 text-foreground/35 leading-relaxed max-w-xl font-light">
-              Après une quinzaine de leçons, vous maîtriserez le cha-cha,
-              quickstep, tango et valse. En fin d&apos;année : rumba, valse
-              viennoise, samba et jive en plus.
             </p>
           </div>
         </div>

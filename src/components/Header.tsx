@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
@@ -25,32 +26,28 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-2xl bg-white/80 ${
           scrolled
-            ? "py-3 glass-strong shadow-[0_4px_30px_rgba(0,0,0,0.04)]"
-            : "py-5 bg-transparent"
+            ? "py-3 shadow-[0_4px_30px_rgba(0,0,0,0.06)]"
+            : "py-5"
         }`}
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group relative z-10">
-              <div className="relative">
-                <div
-                  className={`w-11 h-11 rounded-2xl bg-gradient-to-br from-rose-400 to-ciel-400 flex items-center justify-center transition-all duration-500 group-hover:rounded-xl group-hover:shadow-lg group-hover:shadow-rose-300/30 ${
-                    scrolled ? "shadow-md" : "shadow-lg shadow-rose-300/20"
-                  }`}
-                >
-                  <span className="font-display text-white font-bold text-base italic tracking-tight">
-                    Jd
-                  </span>
-                </div>
-              </div>
+              <Image
+                src="/logojydanse.png"
+                alt="Logo J'y Danse"
+                width={32}
+                height={46}
+                className="transition-all duration-500"
+              />
               <div className="hidden sm:flex flex-col">
                 <span className="font-display text-[1.15rem] font-semibold tracking-tight text-foreground italic leading-tight">
                   J&apos;y Danse
                 </span>
-                <span className="text-[0.6rem] font-medium uppercase tracking-[0.25em] text-rose-400 leading-none mt-0.5">
+                <span className="text-xs font-medium uppercase tracking-[0.25em] text-rose-400 leading-none mt-0.5">
                   depuis 1992
                 </span>
               </div>
@@ -62,14 +59,14 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="link-fancy px-4 py-2 text-[0.82rem] font-medium text-foreground/65 hover:text-foreground transition-colors duration-300"
+                  className="link-fancy px-4 py-2 text-sm font-medium text-foreground/65 hover:text-foreground transition-colors duration-300"
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/inscription"
-                className="btn-shine ml-4 inline-flex items-center gap-1.5 px-6 py-2.5 text-[0.82rem] font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-lg hover:shadow-rose-300/30 transition-all duration-500 hover:-translate-y-0.5"
+                className="btn-shine ml-4 inline-flex items-center gap-1.5 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-lg hover:shadow-rose-300/30 transition-all duration-500 hover:-translate-y-0.5"
               >
                 S&apos;inscrire
                 <ArrowUpRight size={14} strokeWidth={2.5} />
@@ -123,7 +120,7 @@ export default function Header() {
           <Link
             href="/inscription"
             onClick={() => setOpen(false)}
-            className="mt-8 btn-shine inline-flex items-center gap-2 px-10 py-4 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 to-ciel-400 rounded-full reveal-up delay-500"
+            className="mt-8 btn-shine inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white bg-gradient-to-r from-rose-500 to-ciel-400 rounded-full reveal-up delay-500"
           >
             S&apos;inscrire
             <ArrowUpRight size={16} />

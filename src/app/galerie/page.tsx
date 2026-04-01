@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Camera, Info } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -22,23 +23,32 @@ export default function GaleriePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-12 pb-20 sm:pb-28 overflow-hidden grain">
+      <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
         <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-white to-rose-50" />
-        <div className="absolute bottom-10 right-[10%] w-[350px] h-[350px] bg-rose-200/15 blob-alt" />
+        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
+        <Image
+          src="/logojydanse.png"
+          alt="Logo J'y Danse"
+          width={180}
+          height={258}
+          className="hidden lg:block absolute top-1/2 -translate-y-1/3 right-[8%] lg:right-[12%] drop-shadow-lg opacity-25"
+        />
 
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-rose-300" />
-            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-rose-400">
-              Nos plus beaux moments
-            </span>
+        <div className="relative h-full flex items-center mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <div className="w-8 h-px bg-rose-300" />
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-rose-400">
+                Nos plus beaux moments
+              </span>
+            </div>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold italic text-foreground leading-[0.95]">
+              Galerie
+            </h1>
+            <p className="mt-6 text-lg text-foreground/40 font-light max-w-xl">
+              Retrouvez les moments forts du club : soirées, entraînements, bals et événements.
+            </p>
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold italic text-foreground leading-[0.95]">
-            Galerie
-          </h1>
-          <p className="mt-6 text-lg text-foreground/40 font-light max-w-xl">
-            Retrouvez les moments forts du club : soirées, entraînements, bals et événements.
-          </p>
         </div>
       </section>
 

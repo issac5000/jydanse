@@ -5,7 +5,7 @@ export default function Marquee({ items }: { items: string[] }) {
       <div className="animate-marquee inline-flex gap-8">
         {doubled.map((item, i) => (
           <span key={i} className="inline-flex items-center gap-8">
-            <span className="text-sm font-medium text-foreground/25 uppercase tracking-[0.2em]">
+            <span className="text-base font-medium text-foreground/25 uppercase tracking-[0.2em]">
               {item}
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-rose-300 to-ciel-300" />

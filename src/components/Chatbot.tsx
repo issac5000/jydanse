@@ -274,7 +274,7 @@ export default function Chatbot() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Pose ta question..."
                 disabled={streaming}
-                className="flex-1 bg-transparent text-sm text-foreground/70 placeholder:text-foreground/30 focus:outline-none disabled:opacity-50"
+                className="flex-1 bg-transparent text-base text-foreground/70 placeholder:text-foreground/30 focus:outline-none disabled:opacity-50"
               />
               <button
                 type="submit"

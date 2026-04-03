@@ -270,3 +270,32 @@ body {
   background: var(--color-rose-200);
   color: var(--color-rose-800);
 }
+
+/* === CHATBOT BREATHE === */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* === CHATBOT SCROLLBAR === */
+.chatbot-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chatbot-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatbot-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-rose-200);
+  border-radius: 999px;
+}
+
+.chatbot-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-rose-200) transparent;
+}

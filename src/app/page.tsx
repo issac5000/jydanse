@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Users, Award, Heart, Sparkles } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import Marquee from "@/components/Marquee";
 
 const danceStyles = [
@@ -43,10 +44,10 @@ const courses = [
 ];
 
 const stats = [
-  { value: "1992", label: "Année de fondation", icon: <Clock size={22} /> },
-  { value: "3", label: "Soirées par semaine", icon: <Sparkles size={22} /> },
-  { value: "28", label: "Leçons par saison", icon: <Award size={22} /> },
-  { value: "180€", label: "Par an / personne", icon: <Heart size={22} /> },
+  { num: 1992, suffix: "", label: "Année de fondation", icon: <Clock size={22} /> },
+  { num: 3, suffix: "", label: "Soirées par semaine", icon: <Sparkles size={22} /> },
+  { num: 28, suffix: "", label: "Leçons par saison", icon: <Award size={22} /> },
+  { num: 180, suffix: "€", label: "Par an / personne", icon: <Heart size={22} /> },
 ];
 
 export default function Home() {
@@ -83,17 +84,17 @@ export default function Home() {
             {/* Main headline */}
             <h1 className="reveal-up delay-100">
               <span className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold italic text-foreground leading-[0.95] tracking-tight">
-                L&apos;élégance
+                Venez danser
               </span>
               <span className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold italic leading-[0.95] tracking-tight mt-1">
                 <span className="bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 bg-clip-text text-transparent">
-                  en mouvement
+                  avec nous !
                 </span>
               </span>
             </h1>
 
             {/* Subtext */}
-            <p className="reveal-up delay-300 mt-8 text-xl sm:text-2xl text-foreground/45 leading-relaxed max-w-xl font-light">
+            <p className="reveal-up delay-300 mt-8 text-base sm:text-lg text-foreground/45 leading-relaxed max-w-xl font-light">
               Bienvenue à tous — débutants ou confirmés.
               Découvrez la danse dans une ambiance conviviale et
               familiale, guidés par des professeurs passionnés.
@@ -123,23 +124,23 @@ export default function Home() {
 
           {/* Floating stat card */}
           <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 reveal-scale delay-600">
-            <div className="glass rounded-3xl p-8 w-64 glow-rose animate-float-gentle">
-              <div className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-4">
-                Saison 2025–2026
+            <div className="glass rounded-3xl p-10 w-80 glow-rose animate-float-gentle">
+              <div className="text-sm font-semibold uppercase tracking-[0.3em] text-rose-400 mb-6">
+                Saison 2026–2027
               </div>
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {[
                   { day: "Mar", label: "Line dance & Rock", time: "19h" },
                   { day: "Mer", label: "Danses de salon", time: "19h" },
                   { day: "Jeu", label: "Latino & Salsa", time: "19h" },
                 ].map((s) => (
-                  <div key={s.day} className="flex items-center gap-3">
-                    <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-rose-100 to-ciel-100 flex items-center justify-center text-sm font-bold text-rose-500">
+                  <div key={s.day} className="flex items-center gap-4">
+                    <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-100 to-ciel-100 flex items-center justify-center text-base font-bold text-rose-500">
                       {s.day}
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-foreground/70 leading-tight">{s.label}</p>
-                      <p className="text-xs text-foreground/35">{s.time}</p>
+                      <p className="text-base font-medium text-foreground/70 leading-tight">{s.label}</p>
+                      <p className="text-sm text-foreground/35">{s.time}</p>
                     </div>
                   </div>
                 ))}
@@ -152,118 +153,24 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* ═══════════════ MARQUEE ═══════════════ */}
-      <Marquee items={danceStyles} />
-
-      {/* ═══════════════ COURSES ═══════════════ */}
-      <section className="relative py-28 sm:py-36 overflow-hidden">
-        <div className="absolute inset-0 bg-background" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-rose-50/50 rounded-full blur-[160px]" />
-
-        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <AnimatedSection>
-            <div className="flex flex-col items-center text-center mb-20">
-              <Image
-                src="/logojydanse.png"
-                alt="Logo J'y Danse"
-                width={130}
-                height={186}
-                className="drop-shadow-lg mb-6"
-              />
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
-                3 soirées, tous niveaux
-              </p>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold italic text-foreground leading-tight">
-                Nos cours
-              </h2>
-            </div>
-            <div className="flex justify-end -mt-14">
-              <Link
-                href="/cours"
-                className="link-fancy text-base font-medium text-foreground/45 hover:text-rose-500 transition-colors"
-              >
-                Tout découvrir
-              </Link>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {courses.map((c, i) => (
-              <AnimatedSection key={c.number} delay={i * 120}>
-                <div
-                  className={`group relative rounded-[2rem] bg-gradient-to-br ${c.gradient} p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-rose-200/15`}
-                >
-                  {/* Course number */}
-                  <span className="absolute top-6 right-8 font-display text-7xl font-bold italic text-foreground/[0.04] leading-none select-none">
-                    {c.number}
-                  </span>
-
-                  <div className={`w-2 h-2 rounded-full ${c.accent} mb-6`} />
-
-                  <h3 className="font-display text-2xl font-semibold italic text-foreground mb-1">
-                    {c.title}
-                  </h3>
-                  <p className="text-base text-foreground/40 mb-6">{c.subtitle}</p>
-
-                  <div className="mb-6">
-                    <p className="text-sm font-semibold text-rose-500 mb-1">{c.prof}</p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 rounded-lg bg-white/60 flex items-center justify-center">
-                        <Clock size={12} className="text-foreground/40" />
-                      </div>
-                      <span className="text-sm text-foreground/40">{c.day} soir</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {c.dances.map((d) => (
-                      <span
-                        key={d}
-                        className="px-3 py-1 rounded-full bg-white/50 text-xs font-medium text-foreground/50 transition-colors group-hover:bg-white/70"
-                      >
-                        {d}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════ STATS BAND ═══════════════ */}
-      <section className="relative py-24 sm:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400" />
-        <div className="absolute inset-0 grain" />
-
-        <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {stats.map((s, i) => (
-              <AnimatedSection key={s.label} delay={i * 100}>
-                <div className="relative text-center p-8 rounded-[2rem] bg-white/15 border border-white/20 backdrop-blur-sm hover:-translate-y-1 hover:bg-white/25 transition-all duration-500">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/20 text-white mb-5">
-                    {s.icon}
-                  </div>
-                  <div className="font-display text-4xl sm:text-5xl font-bold italic text-white mb-2">
-                    {s.value}
-                  </div>
-                  <p className="text-sm text-white/70 font-medium uppercase tracking-wider">
-                    {s.label}
-                  </p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══════════════ ABOUT / AMBIANCE ═══════════════ */}
       <section className="relative py-28 sm:py-36 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-cream to-background" />
         <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-ciel-100/30 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/2" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <AnimatedSection>
+            <div className="flex justify-center mb-16">
+              <Image
+                src="/logojydanse.png"
+                alt="Logo J'y Danse"
+                width={130}
+                height={186}
+                className="drop-shadow-lg"
+              />
+            </div>
+          </AnimatedSection>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left — image placeholder */}
             <AnimatedSection>
@@ -336,6 +243,109 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══════════════ MARQUEE ═══════════════ */}
+      <Marquee items={danceStyles} />
+
+      {/* ═══════════════ COURSES ═══════════════ */}
+      <section className="relative py-28 sm:py-36 overflow-hidden">
+        <div className="absolute inset-0 bg-background" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-rose-50/50 rounded-full blur-[160px]" />
+
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <AnimatedSection>
+            <div className="flex flex-col items-center text-center mb-20">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
+                3 soirées, tous niveaux
+              </p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold italic text-foreground leading-tight">
+                Nos cours
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {courses.map((c, i) => (
+              <AnimatedSection key={c.number} delay={i * 120}>
+                <div
+                  className={`group relative rounded-[2rem] bg-gradient-to-br ${c.gradient} p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-rose-200/15 h-full flex flex-col`}
+                >
+                  {/* Course number */}
+                  <span className="absolute -top-4 -right-2 font-display text-[10rem] font-bold italic text-foreground/[0.06] leading-none select-none">
+                    {c.number}
+                  </span>
+
+                  <div className={`w-2 h-2 rounded-full ${c.accent} mb-6`} />
+
+                  <h3 className="font-display text-2xl font-semibold italic text-foreground mb-1">
+                    {c.title}
+                  </h3>
+                  <p className="text-base text-foreground/40 mb-6">{c.subtitle}</p>
+
+                  <div className="mb-6">
+                    <p className="text-sm font-semibold text-rose-500 mb-1">{c.prof}</p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-lg bg-white/60 flex items-center justify-center">
+                        <Clock size={12} className="text-foreground/40" />
+                      </div>
+                      <span className="text-sm text-foreground/40">{c.day} soir</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 mt-auto">
+                    {c.dances.map((d) => (
+                      <span
+                        key={d}
+                        className="px-3 py-1 rounded-full bg-white/50 text-xs font-medium text-foreground/50 transition-colors group-hover:bg-white/70"
+                      >
+                        {d}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection delay={400}>
+            <div className="flex justify-center mt-12">
+              <Link
+                href="/cours"
+                className="btn-shine inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-lg hover:shadow-rose-300/25 transition-all duration-500 hover:-translate-y-0.5"
+              >
+                Tout découvrir
+                <ArrowUpRight size={16} strokeWidth={2.5} />
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ═══════════════ STATS BAND ═══════════════ */}
+      <section className="relative py-24 sm:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65" />
+        <div className="absolute inset-0 grain" />
+
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {stats.map((s, i) => (
+              <AnimatedSection key={s.label} delay={i * 100}>
+                <div className="relative text-center p-8 rounded-[2rem] bg-white/15 border border-white/20 backdrop-blur-sm hover:-translate-y-1 hover:bg-white/25 transition-all duration-500 h-full flex flex-col items-center justify-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/20 text-white mb-5">
+                    {s.icon}
+                  </div>
+                  <div className="font-display text-4xl sm:text-5xl font-bold italic text-white mb-2">
+                    <AnimatedCounter value={s.num} suffix={s.suffix} />
+                  </div>
+                  <p className="text-sm text-white/70 font-medium uppercase tracking-wider">
+                    {s.label}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════ EVENTS ═══════════════ */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-frost/30" />
@@ -352,27 +362,41 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical line */}
+            <div className="absolute left-[22px] sm:left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-rose-300/50 to-transparent" />
+
+            <div className="space-y-10">
             {[
-              { date: "2–4 sept.", title: "Portes ouvertes", desc: "Venez essayer gratuitement", color: "from-rose-200/40 to-rose-100/40" },
-              { date: "16 oct.", title: "Soirée Halloween", desc: "Entraînement déguisé", color: "from-ciel-200/40 to-ciel-100/40" },
-              { date: "18 déc.", title: "Soirée de Noël", desc: "Ambiance festive", color: "from-rose-100/40 to-ciel-100/40" },
-              { date: "12 fév.", title: "Soirée Carnaval", desc: "Déguisement souhaité", color: "from-ciel-100/40 to-rose-100/40" },
+              { date: "2–4 sept.", title: "Portes ouvertes", desc: "Venez essayer gratuitement", color: "from-rose-200/40 to-rose-100/40", float: "animate-float-gentle" },
+              { date: "16 oct.", title: "Soirée Halloween", desc: "Entraînement déguisé", color: "from-ciel-200/40 to-ciel-100/40", float: "animate-float-slow" },
+              { date: "18 déc.", title: "Soirée de Noël", desc: "Ambiance festive", color: "from-rose-100/40 to-ciel-100/40", float: "animate-float-gentle" },
+              { date: "12 fév.", title: "Soirée Carnaval", desc: "Déguisement souhaité", color: "from-ciel-100/40 to-rose-100/40", float: "animate-float-slow" },
             ].map((e, i) => (
-              <AnimatedSection key={e.title} delay={i * 100}>
-                <div
-                  className={`group relative rounded-[1.5rem] bg-gradient-to-br ${e.color} p-7 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100/20 border border-white/40`}
-                >
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/60 text-xs font-bold text-rose-500 uppercase tracking-wider mb-4">
-                    {e.date}
-                  </span>
-                  <h3 className="font-display text-xl font-semibold italic text-foreground mb-1">
-                    {e.title}
-                  </h3>
-                  <p className="text-sm text-foreground/40">{e.desc}</p>
+              <AnimatedSection key={e.title} delay={i * 120}>
+                <div className={`relative sm:flex sm:items-center ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}>
+                  {/* Dot on the line */}
+                  <div className="absolute left-[22px] sm:left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-rose-400 to-ciel-400 ring-4 ring-white z-10" />
+
+                  {/* Card */}
+                  <div className={`ml-12 sm:ml-0 sm:w-[calc(50%-2rem)] ${i % 2 === 0 ? "sm:mr-auto sm:pr-8" : "sm:ml-auto sm:pl-8"}`}>
+                    <div
+                      className={`group relative rounded-[1.5rem] bg-gradient-to-br ${e.color} p-7 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100/20 border border-white/40 ${e.float}`}
+                      style={{ animationDelay: `${i * 2}s` }}
+                    >
+                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/60 text-xs font-bold text-rose-500 uppercase tracking-wider mb-4">
+                        {e.date}
+                      </span>
+                      <h3 className="font-display text-xl font-semibold italic text-foreground mb-1">
+                        {e.title}
+                      </h3>
+                      <p className="text-sm text-foreground/40">{e.desc}</p>
+                    </div>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
+            </div>
           </div>
         </div>
       </section>

@@ -33,7 +33,7 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="flex items-center justify-between">
+          <div className="relative flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group relative z-10">
               <Image
@@ -72,6 +72,11 @@ export default function Header() {
                 <ArrowUpRight size={14} strokeWidth={2.5} />
               </Link>
             </nav>
+
+            {/* Mobile centered title */}
+            <span className="absolute left-1/2 -translate-x-1/2 sm:hidden font-display text-lg font-semibold italic text-foreground">
+              J&apos;y Danse
+            </span>
 
             {/* Mobile toggle */}
             <button

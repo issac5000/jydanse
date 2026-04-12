@@ -15,8 +15,8 @@ const schedule = [
     accent: "from-rose-400 to-rose-500",
     dotColor: "bg-rose-400",
     courses: [
-      { time: "19h00 – 20h30", title: "Danses en ligne", prof: "Didier & Carine Paschal", level: "Tous niveaux" },
-      { time: "20h30 – 21h30", title: "Rock 4T, Soul & WCS", prof: "Didier & Carine Paschal", level: "Tous niveaux" },
+      { time: "19h00 – 20h30", title: "Danses en ligne", prof: "Didier & Cowine Paschal", level: "Tous niveaux" },
+      { time: "20h30 – 21h30", title: "Rock 4T, Soul & Boogie", prof: "Didier & Cowine Paschal", level: "Tous niveaux" },
     ],
   },
   {
@@ -129,7 +129,7 @@ export default function HorairesPage() {
     <>
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
-        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-white to-rose-50" />
+        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-frost/30 to-rose-50" />
         <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
@@ -147,7 +147,7 @@ export default function HorairesPage() {
                 Saison 2026–2027
               </span>
             </div>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold italic text-foreground leading-[0.95]">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95]">
               Horaires & tarifs
             </h1>
             <p className="mt-6 text-foreground/40 text-lg font-light max-w-xl">
@@ -164,7 +164,7 @@ export default function HorairesPage() {
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
               Planning hebdomadaire
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold italic text-foreground mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-12">
               3 soirées de cours
             </h2>
           </AnimatedSection>
@@ -172,7 +172,7 @@ export default function HorairesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {schedule.map((s, si) => (
               <AnimatedSection key={s.day} delay={si * 120}>
-                <div className="rounded-[2rem] overflow-hidden border border-white/40 bg-white/30 backdrop-blur-sm h-full">
+                <div className="rounded-[2rem] overflow-hidden border border-blush/40 bg-blush/30 backdrop-blur-sm h-full">
                   <div className={`bg-gradient-to-r ${s.accent} px-8 py-5`}>
                     <h3 className="text-lg font-bold text-white tracking-wide">{s.day}</h3>
                   </div>
@@ -180,13 +180,13 @@ export default function HorairesPage() {
                     {s.courses.map((c, ci) => (
                       <div
                         key={ci}
-                        className="group p-4 rounded-xl hover:bg-rose-50/40 transition-colors"
+                        className="group p-4 rounded-xl hover:bg-rose-100/40 transition-colors"
                       >
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="text-xs font-bold tabular-nums text-rose-500">
                             {c.time}
                           </span>
-                          <span className="px-2.5 py-0.5 rounded-full bg-ciel-50 text-[0.65rem] font-semibold text-ciel-600">
+                          <span className="px-2.5 py-0.5 rounded-full bg-ciel-100/60 text-[0.65rem] font-semibold text-ciel-600">
                             {c.level}
                           </span>
                         </div>
@@ -214,7 +214,7 @@ export default function HorairesPage() {
                 Calendrier annuel
               </p>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold italic text-foreground mb-4">
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
               Saison complète
             </h2>
             <p className="text-foreground/40 text-sm font-light max-w-xl mb-10">
@@ -261,10 +261,10 @@ export default function HorairesPage() {
                 return (
                   <div
                     key={`${year}-${month}`}
-                    className="rounded-2xl bg-white/40 backdrop-blur-sm border border-white/50 p-2.5 sm:p-4"
+                    className="rounded-2xl p-2.5 sm:p-4"
                   >
-                    <h4 className="font-display text-sm font-semibold italic text-foreground text-center mb-2.5">
-                      {name} <span className="text-foreground/30 font-normal not-italic text-xs">{year}</span>
+                    <h4 className="font-display text-sm font-extrabold text-foreground text-center mb-2.5">
+                      {name} <span className="text-foreground/30 font-normal text-xs">{year}</span>
                     </h4>
                     <div className="grid grid-cols-7 gap-[2px]">
                       {weekDayLabels.map((label, i) => (
@@ -320,8 +320,8 @@ export default function HorairesPage() {
 
           <AnimatedSection delay={300}>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
-              <div className="rounded-2xl bg-white/40 backdrop-blur-sm border border-white/50 p-7 sm:p-8">
-                <h4 className="font-display text-lg font-semibold italic text-foreground mb-5">
+              <div className="rounded-2xl bg-blush/35 backdrop-blur-sm border border-blush/40 p-7 sm:p-8">
+                <h4 className="font-display text-lg font-extrabold text-foreground mb-5">
                   Congés scolaires
                 </h4>
                 <ul className="space-y-3 text-sm text-foreground/50">
@@ -331,8 +331,8 @@ export default function HorairesPage() {
                   <li><span className="text-foreground/70 font-medium">Printemps</span> — 26/04 → 09/05</li>
                 </ul>
               </div>
-              <div className="rounded-2xl bg-white/40 backdrop-blur-sm border border-white/50 p-7 sm:p-8">
-                <h4 className="font-display text-lg font-semibold italic text-foreground mb-5">
+              <div className="rounded-2xl bg-blush/35 backdrop-blur-sm border border-blush/40 p-7 sm:p-8">
+                <h4 className="font-display text-lg font-extrabold text-foreground mb-5">
                   Jours fériés
                 </h4>
                 <ul className="space-y-3 text-sm text-foreground/50">
@@ -361,7 +361,7 @@ export default function HorairesPage() {
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
                 Tarifs saison 2026–2027
               </p>
-              <h2 className="font-display text-4xl sm:text-5xl font-semibold italic text-foreground">
+              <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground">
                 Des prix accessibles
               </h2>
             </div>
@@ -385,7 +385,7 @@ export default function HorairesPage() {
                   <p className={`text-sm font-medium mb-4 ${p.popular ? "text-white/70" : "text-foreground/40"}`}>
                     {p.courses}
                   </p>
-                  <div className={`font-display text-5xl font-bold italic mb-2 ${p.popular ? "text-white" : "text-foreground"}`}>
+                  <div className={`font-display text-5xl font-extrabold mb-2 ${p.popular ? "text-white" : "text-foreground"}`}>
                     {p.price}<span className="text-2xl">€</span>
                   </div>
                   <p className={`text-xs mb-6 ${p.popular ? "text-white/55" : "text-foreground/30"}`}>
@@ -407,10 +407,10 @@ export default function HorairesPage() {
           </div>
 
           <AnimatedSection delay={400}>
-            <div className="mt-10 rounded-2xl glass p-6 max-w-2xl mx-auto text-sm text-foreground/40 space-y-2">
-              <p><strong className="text-foreground/60">Enfants -15 ans :</strong> 6 € (assurance seule) si parents inscrits, sinon 95 €.</p>
+            <div className="mt-10 rounded-2xl bg-gradient-to-br from-rose-400/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-6 max-w-2xl mx-auto text-sm text-white/70 space-y-2">
+              <p><strong className="text-white">Enfants -15 ans :</strong> 6 € (assurance seule) si parents inscrits, sinon 95 €.</p>
               <p>Les cours non suivis ne sont ni déduits, ni remboursés.</p>
-              <p><strong className="text-foreground/60">Compte bancaire :</strong> BE50 125-0107500-18</p>
+              <p><strong className="text-white">Compte bancaire :</strong> BE50 125-0107500-18</p>
             </div>
           </AnimatedSection>
         </div>
@@ -425,7 +425,7 @@ export default function HorairesPage() {
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
               Événements
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold italic text-foreground mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-12">
               Temps forts 2026–2027
             </h2>
           </AnimatedSection>
@@ -433,12 +433,12 @@ export default function HorairesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {events.map((e, i) => (
               <AnimatedSection key={e.title} delay={i * 100}>
-                <div className="rounded-[1.5rem] glass p-7 h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100/15">
-                  <span className="inline-flex px-3 py-1 rounded-full bg-gradient-to-r from-rose-100 to-ciel-100 text-[0.65rem] font-bold text-rose-500 uppercase tracking-wider mb-4">
+                <div className="rounded-[1.5rem] bg-gradient-to-br from-rose-500/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-7 h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100/15">
+                  <span className="inline-flex px-3 py-1 rounded-full bg-white/20 text-[0.65rem] font-bold text-white uppercase tracking-wider mb-4">
                     {e.date}
                   </span>
-                  <h3 className="font-display text-lg font-semibold italic text-foreground mb-1">{e.title}</h3>
-                  <p className="text-xs text-foreground/35">{e.desc}</p>
+                  <h3 className="font-display text-lg font-extrabold text-white mb-1">{e.title}</h3>
+                  <p className="text-xs text-white/60">{e.desc}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -447,18 +447,17 @@ export default function HorairesPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400" />
-        <div className="absolute inset-0 grain" />
-        <div className="relative text-center mx-auto max-w-2xl px-5">
+      <section className="relative py-32 sm:py-40 overflow-hidden">
+        <div className="absolute inset-0 bg-frost/30" />
+        <div className="relative text-center mx-auto max-w-3xl px-5 sm:px-8">
           <AnimatedSection>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold italic text-white mb-4">
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
               Prêt à vous lancer ?
             </h2>
-            <p className="text-white/60 mb-8">28 leçons, entraînements gratuits, assurance comprise.</p>
+            <p className="text-foreground/40 text-lg sm:text-xl leading-relaxed mb-12 font-light">28 leçons, entraînements gratuits, assurance comprise.</p>
             <Link
               href="/inscription"
-              className="inline-flex items-center gap-2 px-9 py-4 text-sm font-semibold text-rose-500 bg-white rounded-full hover:shadow-xl transition-all duration-500 hover:-translate-y-0.5"
+              className="btn-shine inline-flex items-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500 hover:-translate-y-0.5"
             >
               S&apos;inscrire maintenant
               <ArrowUpRight size={16} />

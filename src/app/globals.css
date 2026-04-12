@@ -1,38 +1,38 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #fefcfd;
+  --color-background: #f9f4f6;
   --color-foreground: #1a0a12;
 
-  /* Refined pastel palette — rose + ciel */
-  --color-rose-50: #fef5f8;
-  --color-rose-100: #fde8ef;
-  --color-rose-200: #fbd0df;
-  --color-rose-300: #f7a8c4;
-  --color-rose-400: #f07aaa;
-  --color-rose-500: #e54d8a;
+  /* Refined pastel palette — rose + ciel (deepened) */
+  --color-rose-50: #fcedf4;
+  --color-rose-100: #f8d6e4;
+  --color-rose-200: #f4bcd0;
+  --color-rose-300: #f0a0bc;
+  --color-rose-400: #ec6fa0;
+  --color-rose-500: #e04882;
   --color-rose-600: #c4296e;
   --color-rose-700: #9e1d56;
   --color-rose-800: #7a1845;
 
-  --color-ciel-50: #f2f7fd;
-  --color-ciel-100: #e3eefa;
-  --color-ciel-200: #c1daf6;
-  --color-ciel-300: #8bbced;
-  --color-ciel-400: #5a9de3;
-  --color-ciel-500: #3580d1;
+  --color-ciel-50: #e7eff9;
+  --color-ciel-100: #d2e2f5;
+  --color-ciel-200: #aacbee;
+  --color-ciel-300: #7db0e5;
+  --color-ciel-400: #4d90da;
+  --color-ciel-500: #2e74c4;
   --color-ciel-600: #2563b0;
   --color-ciel-700: #1f4f8f;
   --color-ciel-800: #1e4477;
 
-  --color-blush: #f9e8ef;
-  --color-blush-deep: #f0d0df;
-  --color-frost: #eaf2fc;
-  --color-frost-deep: #d4e4f8;
-  --color-cream: #fdfaf7;
+  --color-blush: #f0d4e2;
+  --color-blush-deep: #e6bcd0;
+  --color-frost: #d8e6f5;
+  --color-frost-deep: #c2d6ee;
+  --color-cream: #f3ece4;
 
   --font-sans: var(--font-outfit);
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-outfit);
 }
 
 html {
@@ -124,17 +124,17 @@ body {
 
 /* === GLASS CARDS === */
 .glass {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(245, 228, 237, 0.5);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(240, 212, 226, 0.5);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(245, 228, 237, 0.65);
   backdrop-filter: blur(32px) saturate(1.6);
   -webkit-backdrop-filter: blur(32px) saturate(1.6);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(240, 212, 226, 0.65);
 }
 
 /* === DIAGONAL DIVIDERS === */

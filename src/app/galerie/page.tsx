@@ -24,7 +24,7 @@ export default function GaleriePage() {
     <>
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
-        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-white to-rose-50" />
+        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-frost/30 to-rose-50" />
         <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
@@ -42,7 +42,7 @@ export default function GaleriePage() {
                 Nos plus beaux moments
               </span>
             </div>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold italic text-foreground leading-[0.95]">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95]">
               Galerie
             </h1>
             <p className="mt-6 text-lg text-foreground/40 font-light max-w-xl">
@@ -59,11 +59,11 @@ export default function GaleriePage() {
             {placeholders.map((p, i) => (
               <AnimatedSection key={i} delay={i * 60} className={p.span}>
                 <div
-                  className={`${p.aspect} w-full h-full rounded-2xl bg-gradient-to-br from-rose-100/60 via-blush/40 to-ciel-100/60 border border-white/40 flex items-center justify-center overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-rose-100/15 hover:-translate-y-0.5 group`}
+                  className={`${p.aspect} w-full h-full rounded-2xl bg-gradient-to-br from-rose-500/65 via-rose-400/65 to-ciel-400/65 border border-white/20 backdrop-blur-sm flex items-center justify-center overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-rose-100/15 hover:-translate-y-0.5 group`}
                 >
                   <div className="text-center transition-transform duration-500 group-hover:scale-110">
-                    <Camera size={28} className="text-rose-300/40 mx-auto mb-2" />
-                    <p className="text-[0.65rem] text-foreground/20 font-medium">Bientôt</p>
+                    <Camera size={28} className="text-white/40 mx-auto mb-2" />
+                    <p className="text-[0.65rem] text-white/50 font-medium">Bientôt</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -82,12 +82,12 @@ export default function GaleriePage() {
       <section className="relative py-16">
         <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
-            <div className="rounded-[2rem] glass p-8 sm:p-10">
+            <div className="rounded-[2rem] bg-gradient-to-br from-rose-500/65 via-rose-400/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-8 sm:p-10">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-ciel-100/60 flex items-center justify-center shrink-0">
-                  <Info size={18} className="text-ciel-500" />
+                <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                  <Info size={18} className="text-white" />
                 </div>
-                <div className="text-sm text-foreground/40 leading-[1.8]">
+                <div className="text-sm text-white/70 leading-[1.8]">
                   <p>
                     Dans le respect de la vie privée, toute personne qui souhaite
                     que sa photo n&apos;apparaisse pas sur le site peut le signaler.
@@ -96,8 +96,8 @@ export default function GaleriePage() {
                     Si vous souhaitez qu&apos;une photo vous concernant soit
                     retirée, faites-le savoir et elle sera supprimée sans délai.
                   </p>
-                  <p className="mt-3 text-foreground/25 italic font-display">
-                    — Martine Leduc, présidente
+                  <p className="mt-3 text-white/50 font-display font-medium">
+                    — Boucq Dominique, présidente
                   </p>
                 </div>
               </div>

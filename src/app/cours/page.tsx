@@ -15,7 +15,7 @@ const courses = [
     id: "salon",
     icon: <Star size={22} />,
     number: "01",
-    title: "Danses de salon",
+    title: "Danses sportives / de salon",
     subtitle: "Standards & Latines",
     prof: "Eric Dehant",
     profTag: "Coach de danse aux États-Unis",
@@ -26,10 +26,10 @@ const courses = [
       { name: "Perfectionnement 1", time: "20h00 – 21h00" },
       { name: "Perfectionnement 2", time: "21h00 – 22h00" },
     ],
-    dances: ["Tango", "Quickstep", "Valse lente", "Valse viennoise", "Cha-cha", "Rumba", "Samba", "Jive"],
-    gradient: "from-rose-100/70 to-blush/60",
-    accentColor: "text-rose-500",
-    dotColor: "bg-rose-400",
+    dances: ["Valse lente", "Tango", "Quick-step", "Valse viennoise", "Slow-Fox", "Cha-cha", "Rumba", "Jive", "Samba", "Paso doble"],
+    gradient: "from-rose-500/65 to-rose-400/65",
+    accentColor: "text-white",
+    dotColor: "bg-white/40",
   },
   {
     id: "latino",
@@ -46,25 +46,25 @@ const courses = [
       { name: "Moyen", time: "21h00 – 22h00" },
     ],
     dances: ["Salsa", "Bachata"],
-    gradient: "from-ciel-100/70 to-frost/60",
-    accentColor: "text-ciel-500",
-    dotColor: "bg-ciel-400",
+    gradient: "from-ciel-500/65 to-ciel-400/65",
+    accentColor: "text-white",
+    dotColor: "bg-white/40",
   },
   {
     id: "rock",
     icon: <Zap size={22} />,
     number: "03",
-    title: "Rock & Swing",
+    title: "Rock & Boogie",
     subtitle: "Énergie & Style",
-    prof: "Didier & Carine Paschal",
+    prof: "Didier & Cowine Paschal",
     profTag: "Diplômés UBPDM",
     day: "Mardi",
     period: "09/09/25 au 09/06/26",
     levels: [{ name: "Tous niveaux", time: "20h30 – 21h30" }],
-    dances: ["Rock 4T", "Soul", "West Coast Swing"],
-    gradient: "from-rose-50/70 to-ciel-50/60",
-    accentColor: "text-rose-500",
-    dotColor: "bg-gradient-to-r from-rose-400 to-ciel-400",
+    dances: ["Rock 4T", "Soul", "Boogie"],
+    gradient: "from-rose-500/65 via-rose-400/65 to-ciel-400/65",
+    accentColor: "text-white",
+    dotColor: "bg-white/40",
   },
   {
     id: "solo",
@@ -72,7 +72,7 @@ const courses = [
     number: "04",
     title: "Danses solo",
     subtitle: "Line dance & Latino solo",
-    prof: "Didier & Carine / Ivan",
+    prof: "Didier & Cowine / Ivan",
     profTag: "",
     day: "Mardi & Jeudi",
     period: "Sept. 2025 – Juin 2026",
@@ -80,10 +80,10 @@ const courses = [
       { name: "Line dance", time: "Mar. 19h00 – 20h30" },
       { name: "Latino solo", time: "Jeu. 19h00 – 20h00" },
     ],
-    dances: ["Country", "Disco", "Salsa solo", "Bachata solo", "Reggae", "Merengue", "Cumbia"],
-    gradient: "from-ciel-50/70 to-rose-50/60",
-    accentColor: "text-ciel-500",
-    dotColor: "bg-ciel-400",
+    dances: ["Disco", "Salsa solo", "Bachata solo", "Reggae", "Merengue", "Cumbia"],
+    gradient: "from-ciel-400/65 to-rose-400/65",
+    accentColor: "text-white",
+    dotColor: "bg-white/40",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function CoursPage() {
     <>
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
-        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-white to-ciel-50" />
+        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-blush/30 to-ciel-50" />
         <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
@@ -110,7 +110,7 @@ export default function CoursPage() {
                 4 disciplines, tous niveaux
               </span>
             </div>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold italic text-foreground leading-[0.95]">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95]">
               Nos cours
             </h1>
             <p className="mt-6 text-lg text-foreground/40 leading-relaxed max-w-xl font-light">
@@ -128,10 +128,10 @@ export default function CoursPage() {
           {courses.map((c, i) => (
             <AnimatedSection key={c.id} delay={i * 80}>
               <div
-                className={`relative rounded-[2rem] bg-gradient-to-br ${c.gradient} border border-white/50 overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-rose-100/15`}
+                className={`relative rounded-[2rem] bg-gradient-to-br ${c.gradient} border border-white/20 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-rose-100/15`}
               >
                 {/* Large number watermark */}
-                <span className="absolute top-6 right-10 font-display text-[8rem] font-bold italic text-foreground/[0.025] leading-none select-none hidden lg:block">
+                <span className="absolute top-6 right-10 font-display text-[8rem] font-extrabold text-white/10 leading-none select-none hidden lg:block">
                   {c.number}
                 </span>
 
@@ -140,14 +140,14 @@ export default function CoursPage() {
                     {/* Left */}
                     <div>
                       <div className="flex items-center gap-4 mb-6">
-                        <div className={`w-11 h-11 rounded-2xl bg-white/50 flex items-center justify-center ${c.accentColor}`}>
+                        <div className={`w-11 h-11 rounded-2xl bg-white/20 flex items-center justify-center ${c.accentColor}`}>
                           {c.icon}
                         </div>
                         <div>
-                          <h2 className="font-display text-2xl sm:text-3xl font-semibold italic text-foreground">
+                          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white">
                             {c.title}
                           </h2>
-                          <p className="text-sm text-foreground/35">{c.subtitle}</p>
+                          <p className="text-sm text-white/70">{c.subtitle}</p>
                         </div>
                       </div>
 
@@ -157,7 +157,7 @@ export default function CoursPage() {
                           <span className={`text-sm font-semibold ${c.accentColor}`}>{c.prof}</span>
                         </div>
                         {c.profTag && (
-                          <span className="text-xs text-foreground/30 italic">{c.profTag}</span>
+                          <span className="text-xs text-white/50">{c.profTag}</span>
                         )}
                       </div>
 
@@ -165,7 +165,7 @@ export default function CoursPage() {
                         {c.dances.map((d) => (
                           <span
                             key={d}
-                            className="px-3.5 py-1.5 rounded-full bg-white/50 text-[0.72rem] font-medium text-foreground/50 border border-white/30"
+                            className="px-3.5 py-1.5 rounded-full bg-white/15 text-[0.72rem] font-medium text-white/80 border border-white/20"
                           >
                             {d}
                           </span>
@@ -176,21 +176,21 @@ export default function CoursPage() {
                     {/* Right — schedule */}
                     <div className="lg:min-w-[260px]">
                       <div className="flex items-center gap-2 mb-4">
-                        <Clock size={14} className="text-foreground/30" />
-                        <span className="text-xs font-medium text-foreground/35 uppercase tracking-wider">{c.day}</span>
+                        <Clock size={14} className="text-white/50" />
+                        <span className="text-xs font-medium text-white/60 uppercase tracking-wider">{c.day}</span>
                       </div>
                       <div className="space-y-2">
                         {c.levels.map((l) => (
                           <div
                             key={l.name}
-                            className="flex items-center justify-between px-4 py-3 rounded-xl bg-white/40 border border-white/40"
+                            className="flex items-center justify-between px-4 py-3 rounded-xl bg-white/15 border border-white/20"
                           >
-                            <span className="text-sm font-medium text-foreground/60">{l.name}</span>
-                            <span className="text-xs font-semibold text-rose-400 tabular-nums">{l.time}</span>
+                            <span className="text-sm font-medium text-white/80">{l.name}</span>
+                            <span className="text-xs font-semibold text-white tabular-nums">{l.time}</span>
                           </div>
                         ))}
                       </div>
-                      <p className="mt-3 text-[0.65rem] text-foreground/25">{c.period}</p>
+                      <p className="mt-3 text-[0.65rem] text-white/40">{c.period}</p>
                     </div>
                   </div>
                 </div>
@@ -210,7 +210,7 @@ export default function CoursPage() {
               <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
                 Inclus dans votre inscription
               </p>
-              <h2 className="font-display text-4xl sm:text-5xl font-semibold italic text-foreground">
+              <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground">
                 Entraînements & soirées
               </h2>
             </div>
@@ -240,15 +240,15 @@ export default function CoursPage() {
               },
             ].map((section, si) => (
               <AnimatedSection key={section.title} delay={si * 150}>
-                <div className="rounded-[2rem] glass p-8 sm:p-10 h-full">
-                  <h3 className="font-display text-xl font-semibold italic text-foreground mb-6">
+                <div className="rounded-[2rem] bg-gradient-to-br from-rose-500/65 via-rose-400/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-8 sm:p-10 h-full">
+                  <h3 className="font-display text-xl font-extrabold text-white mb-6">
                     {section.title}
                   </h3>
                   <ul className="space-y-4">
                     {section.items.map((item) => (
                       <li key={item} className="flex items-start gap-3">
-                        <CheckCircle2 size={16} className="text-rose-400 shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground/50 leading-relaxed">{item}</span>
+                        <CheckCircle2 size={16} className="text-white/70 shrink-0 mt-0.5" />
+                        <span className="text-sm text-white/70 leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>

@@ -26,7 +26,7 @@ export default function InscriptionPage() {
     <>
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
-        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-white to-ciel-50" />
+        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-blush/30 to-ciel-50" />
         <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
@@ -44,7 +44,7 @@ export default function InscriptionPage() {
                 Saison 2025–2026
               </span>
             </div>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-semibold italic text-foreground leading-[0.95]">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95]">
               Inscription
             </h1>
             <p className="mt-6 text-lg text-foreground/40 font-light max-w-xl">
@@ -62,65 +62,65 @@ export default function InscriptionPage() {
             <form className="rounded-[2rem] glass p-8 sm:p-10 lg:p-12 space-y-10">
               {/* Personal info */}
               <div>
-                <h2 className="font-display text-xl font-semibold italic text-foreground mb-8">
+                <h2 className="font-display text-xl font-extrabold text-foreground mb-8">
                   Informations personnelles
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="sm:col-span-2">
-                    <label htmlFor="fullname" className="block text-xs font-semibold uppercase tracking-wider text-foreground/30 mb-2">
+                    <label htmlFor="fullname" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                       Nom et Prénom *
                     </label>
                     <input
                       type="text"
                       id="fullname"
                       required
-                      className="w-full rounded-xl border border-rose-100/60 bg-white/50 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
                     />
                   </div>
                   <div className="sm:col-span-2">
-                    <label htmlFor="address" className="block text-xs font-semibold uppercase tracking-wider text-foreground/30 mb-2">
+                    <label htmlFor="address" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                       Adresse complète
                     </label>
                     <input
                       type="text"
                       id="address"
                       placeholder="Rue, N°, CP, Localité"
-                      className="w-full rounded-xl border border-rose-100/60 bg-white/50 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-foreground/30 mb-2">
+                    <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                       Téléphone
                     </label>
                     <input
                       type="tel"
                       id="phone"
-                      className="w-full rounded-xl border border-rose-100/60 bg-white/50 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
                     />
                   </div>
                   <div>
-                    <label htmlFor="insc-email" className="block text-xs font-semibold uppercase tracking-wider text-foreground/30 mb-2">
+                    <label htmlFor="insc-email" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                       Email *
                     </label>
                     <input
                       type="email"
                       id="insc-email"
                       required
-                      className="w-full rounded-xl border border-rose-100/60 bg-white/50 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
                     />
                   </div>
                   <div>
-                    <label htmlFor="birthdate" className="block text-xs font-semibold uppercase tracking-wider text-foreground/30 mb-2">
+                    <label htmlFor="birthdate" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
                       Date et lieu de naissance
                     </label>
                     <input
                       type="text"
                       id="birthdate"
-                      className="w-full rounded-xl border border-rose-100/60 bg-white/50 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/30 mb-3">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-3">
                       Sexe *
                     </label>
                     <div className="flex gap-6">
@@ -140,7 +140,7 @@ export default function InscriptionPage() {
 
               {/* Course selection */}
               <div>
-                <h2 className="font-display text-xl font-semibold italic text-foreground mb-8">
+                <h2 className="font-display text-xl font-extrabold text-foreground mb-8">
                   Choix des cours
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
@@ -173,7 +173,7 @@ export default function InscriptionPage() {
               <div className="h-px bg-gradient-to-r from-transparent via-rose-200/40 to-transparent" />
 
               {/* RGPD */}
-              <div className="rounded-xl bg-ciel-50/40 border border-ciel-100/40 p-5">
+              <div className="rounded-xl bg-ciel-100/40 border border-ciel-200/40 p-5">
                 <div className="flex items-start gap-3">
                   <Info size={15} className="text-ciel-500 shrink-0 mt-0.5" />
                   <p className="text-xs text-foreground/35 leading-relaxed">

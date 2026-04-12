@@ -186,7 +186,7 @@ export default function Chatbot() {
 
       {/* ── Chat modal ── */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-8rem)] rounded-[2rem] bg-[#fefcfd] shadow-2xl shadow-rose-200/20 flex flex-col overflow-hidden border border-rose-100/60">
+        <div className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-8rem)] rounded-[2rem] bg-[#f9f4f6] shadow-2xl shadow-rose-200/20 flex flex-col overflow-hidden border border-rose-200/50">
           {/* Header */}
           <div className="bg-gradient-to-r from-rose-400 to-ciel-400 px-6 py-4 flex items-center gap-3 shrink-0">
             <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
@@ -212,7 +212,7 @@ export default function Chatbot() {
             {/* Welcome */}
             {messages.length === 0 && (
               <div className="space-y-3">
-                <div className="bg-white/70 rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground/70 leading-relaxed max-w-[85%]">
+                <div className="bg-blush/50 rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground/70 leading-relaxed max-w-[85%]">
                   Bonjour ! Je suis l&apos;assistant du club <strong>J&apos;y Danse</strong>. Comment puis-je t&apos;aider ?
                 </div>
                 <div className="flex flex-col gap-2">
@@ -220,7 +220,7 @@ export default function Chatbot() {
                     <button
                       key={s.text}
                       onClick={() => sendMessage(s.text)}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-50/80 border border-rose-100/60 text-sm text-foreground/60 hover:bg-rose-100/80 hover:border-rose-200 transition-all duration-200 text-left cursor-pointer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-100/70 border border-rose-200/50 text-sm text-foreground/60 hover:bg-rose-200/60 hover:border-rose-300 transition-all duration-200 text-left cursor-pointer"
                     >
                       <span className="text-rose-400 shrink-0">{s.icon}</span>
                       {s.text}
@@ -242,7 +242,7 @@ export default function Chatbot() {
                   className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                     msg.role === "user"
                       ? "bg-gradient-to-r from-rose-400 to-ciel-400 text-white rounded-br-md"
-                      : "bg-white/70 text-foreground/70 rounded-tl-md"
+                      : "bg-blush/50 text-foreground/70 rounded-tl-md"
                   }`}
                 >
                   {msg.role === "assistant" ? (
@@ -266,7 +266,7 @@ export default function Chatbot() {
             onSubmit={handleSubmit}
             className="shrink-0 px-4 pb-4 pt-2"
           >
-            <div className="flex items-center gap-2 bg-white border border-rose-100/60 rounded-full pl-4 pr-1.5 py-1.5">
+            <div className="flex items-center gap-2 bg-blush/60 border border-rose-200/50 rounded-full pl-4 pr-1.5 py-1.5">
               <input
                 ref={inputRef}
                 type="text"

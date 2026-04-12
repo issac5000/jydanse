@@ -35,7 +35,7 @@ export default function Footer() {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
                 Prêt à danser ?
               </p>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold italic text-white leading-tight">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
                 Rejoignez le club
               </h2>
             </div>
@@ -64,7 +64,7 @@ export default function Footer() {
                 height={57}
                 className="shrink-0"
               />
-              <span className="font-display text-lg font-semibold italic text-white">
+              <span className="font-display text-lg font-extrabold text-white">
                 J&apos;y Danse
               </span>
             </Link>

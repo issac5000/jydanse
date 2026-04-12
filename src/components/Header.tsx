@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-2xl bg-white/80 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-2xl bg-rose-50/75 ${
           scrolled
             ? "py-3 shadow-[0_4px_30px_rgba(0,0,0,0.06)]"
             : "py-5"
@@ -44,7 +44,7 @@ export default function Header() {
                 className="transition-all duration-500"
               />
               <div className="hidden sm:flex flex-col">
-                <span className="font-display text-[1.15rem] font-semibold tracking-tight text-foreground italic leading-tight">
+                <span className="font-display text-[1.15rem] font-extrabold tracking-tight text-foreground leading-tight">
                   J&apos;y Danse
                 </span>
                 <span className="text-xs font-medium uppercase tracking-[0.25em] text-rose-400 leading-none mt-0.5">
@@ -74,14 +74,14 @@ export default function Header() {
             </nav>
 
             {/* Mobile centered title */}
-            <span className="absolute left-1/2 -translate-x-1/2 sm:hidden font-display text-lg font-semibold italic text-foreground">
+            <span className="absolute left-1/2 -translate-x-1/2 sm:hidden font-display text-lg font-extrabold text-foreground">
               J&apos;y Danse
             </span>
 
             {/* Mobile toggle */}
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl hover:bg-rose-50 transition-colors"
+              className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl hover:bg-rose-100/60 transition-colors"
               aria-label="Menu"
             >
               {open ? (
@@ -102,12 +102,12 @@ export default function Header() {
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-rose-50/98 via-white/98 to-ciel-50/98 backdrop-blur-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-rose-50/98 via-blush/95 to-ciel-50/98 backdrop-blur-2xl" />
         <nav className="relative flex flex-col items-center justify-center h-full gap-2 px-8">
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="font-display text-5xl italic font-semibold text-foreground mb-10 reveal-up"
+            className="font-display text-5xl font-extrabold text-foreground mb-10 reveal-up"
           >
             J&apos;y Danse
           </Link>

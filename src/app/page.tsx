@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Clock, Users, Award, Heart, Sparkles } from "lucide-react";
+import { ArrowUpRight, Clock, Users, Award, Heart, Sparkles, Quote } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Marquee from "@/components/Marquee";
@@ -131,7 +131,7 @@ export default function Home() {
 
       {/* ═══════════════ ABOUT / AMBIANCE ═══════════════ */}
       <section className="relative pt-6 sm:pt-8 pb-28 sm:pb-36 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-cream to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background to-frost/30" />
         <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-ciel-100/30 rounded-full blur-[140px] translate-x-1/3 -translate-y-1/2" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
@@ -152,20 +152,19 @@ export default function Home() {
             {/* Left — image placeholder */}
             <AnimatedSection>
               <div className="relative">
-                <div className="aspect-[4/5] rounded-[2.5rem] bg-gradient-to-br from-rose-100 via-blush to-ciel-100 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 rounded-full bg-rose-50/50 backdrop-blur-sm flex items-center justify-center mx-auto mb-4">
-                        <Users size={32} className="text-rose-400" />
-                      </div>
-                      <p className="text-base font-medium text-foreground/30">Photo à venir</p>
-                    </div>
-                  </div>
+                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden">
+                  <Image
+                    src="/comite.webp"
+                    alt="Le comité de J'y Danse"
+                    width={768}
+                    height={1376}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {/* Floating accent card */}
-                <div className="absolute -bottom-6 -right-6 glass rounded-2xl px-6 py-4 glow-ciel">
-                  <p className="font-display text-2xl font-extrabold text-foreground">30+</p>
-                  <p className="text-sm text-foreground/40">années d&apos;expérience</p>
+                <div className="absolute -bottom-6 -right-6 rounded-2xl px-6 py-4 bg-gradient-to-br from-rose-500/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 shadow-xl">
+                  <p className="font-display text-2xl font-extrabold text-white">30+</p>
+                  <p className="text-sm text-white/70">années d&apos;expérience</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -229,29 +228,39 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-rose-50/50 rounded-full blur-[160px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          {/* Photo banner + title overlay */}
           <AnimatedSection>
-            <div className="flex flex-col items-center text-center mb-20">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
-                3 soirées, tous niveaux
-              </p>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight">
-                Nos cours
-              </h2>
+            <div className="relative rounded-[2.5rem] overflow-hidden mb-14">
+              <div
+                className="h-[280px] sm:h-[340px] bg-cover"
+                style={{ backgroundImage: "url('/club.webp')", backgroundPosition: "center 45%" }}
+                role="img"
+                aria-label="Cours de danse au club J'y Danse"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-300 mb-3">
+                  3 soirées, tous niveaux
+                </p>
+                <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                  Nos cours
+                </h2>
+              </div>
             </div>
           </AnimatedSection>
 
+          {/* Course cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {courses.map((c, i) => (
               <AnimatedSection key={c.number} delay={i * 120}>
                 <div
                   className={`group relative rounded-[2rem] bg-gradient-to-br ${c.gradient} backdrop-blur-sm border border-white/20 p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-rose-200/15 h-full flex flex-col`}
                 >
-                  {/* Course number */}
                   <span className="absolute -top-4 -right-2 font-display text-[10rem] font-extrabold text-white/10 leading-none select-none">
                     {c.number}
                   </span>
 
-                  <div className={`w-2 h-2 rounded-full bg-white/40 mb-6`} />
+                  <div className="w-2 h-2 rounded-full bg-white/40 mb-6" />
 
                   <h3 className="font-display text-2xl font-extrabold text-white mb-1">
                     {c.title}
@@ -298,9 +307,9 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ STATS BAND ═══════════════ */}
-      <section className="relative py-24 sm:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65" />
-        <div className="absolute inset-0 grain" />
+      <section className="relative py-32 sm:py-36 overflow-hidden">
+        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65" style={{ clipPath: "polygon(0 0, 100% 8%, 100% 92%, 0 100%)" }} />
+        <div className="absolute -inset-x-1 -inset-y-0 grain" style={{ clipPath: "polygon(0 0, 100% 8%, 100% 92%, 0 100%)" }} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -378,9 +387,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══════════════ TESTIMONIALS ═══════════════ */}
+      <section className="relative py-32 sm:py-36 overflow-hidden">
+        {/* Fill only the corner triangles to match adjacent sections */}
+        <div className="absolute inset-0 bg-frost/30" style={{ clipPath: "polygon(0 0, 100% 0, 0 8%)" }} />
+        <div className="absolute inset-0 bg-background" style={{ clipPath: "polygon(0 92%, 100% 100%, 0 100%)" }} />
+        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65" style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 92%)" }} />
+        <div className="absolute -inset-x-1 -inset-y-0 grain" style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 92%)" }} />
+
+        <div className="relative z-[4] mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70 mb-3">
+                Témoignages
+              </p>
+              <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+                Ce qu&apos;ils en disent
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                quote: "Une ambiance incroyable ! On se sent tout de suite à l'aise, les profs sont patients et passionnés. J'y Danse c'est devenu ma deuxième famille.",
+                name: "Marie-Claire",
+                info: "Membre depuis 3 ans",
+              },
+              {
+                quote: "Je suis venu seul, sans aucune expérience. Aujourd'hui je participe aux compétitions ! L'équipe est formidable et les progrès sont rapides.",
+                name: "Philippe",
+                info: "Membre depuis 2 ans",
+              },
+              {
+                quote: "Les soirées et les bals sont des moments magiques. On danse, on rit, on partage. C'est bien plus qu'un club, c'est une vraie communauté.",
+                name: "Isabelle",
+                info: "Membre depuis 5 ans",
+              },
+            ].map((t, i) => (
+              <AnimatedSection key={t.name} delay={i * 150}>
+                <div className="relative rounded-[2rem] bg-white/15 backdrop-blur-sm border border-white/20 p-8 h-full flex flex-col transition-all duration-500 hover:-translate-y-1 hover:bg-white/20">
+                  <Quote size={32} className="text-white/20 mb-4 scale-x-[-1]" />
+                  <p className="text-base text-white/90 leading-relaxed mb-6 flex-1">
+                    &laquo; {t.quote} &raquo;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold text-white">
+                      {t.name[0]}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white">{t.name}</p>
+                      <p className="text-xs text-white/60">{t.info}</p>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════ FINAL CTA ═══════════════ */}
       <section className="relative py-32 sm:py-40 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blush via-background to-frost" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background to-frost/30" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-rose-200/15 rounded-full blur-[160px]" />
 
         <div className="relative text-center mx-auto max-w-3xl px-5 sm:px-8">

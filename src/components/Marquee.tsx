@@ -1,14 +1,18 @@
 export default function Marquee({ items }: { items: string[] }) {
   const doubled = [...items, ...items];
   return (
-    <div className="overflow-hidden whitespace-nowrap py-5 border-y border-rose-200/40">
-      <div className="animate-marquee inline-flex gap-8">
+    <div className="relative overflow-hidden py-8 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65">
+      {/* Fade edges */}
+      <div className="absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-rose-500 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-ciel-400 to-transparent z-10 pointer-events-none" />
+
+      <div className="animate-marquee inline-flex whitespace-nowrap">
         {doubled.map((item, i) => (
-          <span key={i} className="inline-flex items-center gap-8">
-            <span className="text-base font-medium text-foreground/25 uppercase tracking-[0.2em]">
+          <span key={i} className="inline-flex items-center gap-10 mx-5">
+            <span className="text-xl sm:text-2xl font-display font-extrabold text-white uppercase tracking-[0.15em]">
               {item}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-rose-300 to-ciel-300" />
+            <span className="text-white/40 text-2xl select-none">&bull;</span>
           </span>
         ))}
       </div>

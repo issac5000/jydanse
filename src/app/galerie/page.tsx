@@ -38,7 +38,7 @@ export default function GaleriePage() {
           alt=""
           width={80}
           height={115}
-          className="lg:hidden absolute bottom-4 right-4 opacity-20 drop-shadow-lg"
+          className="lg:hidden absolute bottom-4 right-4 opacity-20 drop-shadow-lg z-10"
         />
 
         <div className="relative h-full flex items-center mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">

@@ -163,6 +163,19 @@ export default function Footer() {
             Siège social : Rue des Trieux 71, 6060 Gilly — BCE 0448.577.884
           </p>
         </div>
+        <div className="pb-6 text-center">
+          <p className="text-xs text-white/20">
+            Propulsé par{" "}
+            <a
+              href="https://synaplink.be"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-rose-400 hover:text-rose-300 transition-colors"
+            >
+              Synap&apos;Link
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -138,6 +138,13 @@ export default function HorairesPage() {
           height={258}
           className="hidden lg:block absolute top-1/2 -translate-y-1/3 right-[8%] lg:right-[12%] drop-shadow-lg opacity-25"
         />
+        <Image
+          src="/logojydanse.png"
+          alt=""
+          width={80}
+          height={115}
+          className="lg:hidden absolute bottom-4 right-4 opacity-20 drop-shadow-lg"
+        />
 
         <div className="relative h-full flex items-center mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="max-w-3xl">

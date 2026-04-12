@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import ContactForm from "@/components/ContactForm";
 
 function FacebookIcon({ size = 18 }: { size?: number }) {
   return (
@@ -149,66 +150,7 @@ export default function ContactPage() {
                 <p className="text-sm text-foreground/35 mb-8">
                   Nous vous répondrons dans les meilleurs délais.
                 </p>
-                <form className="space-y-5">
-                  <div>
-                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
-                      Nom *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
-                      placeholder="votre@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
-                      Sujet
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
-                      placeholder="Sujet de votre message"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-foreground mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all resize-none"
-                      placeholder="Votre message…"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="btn-shine group w-full inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500"
-                  >
-                    <Send size={14} />
-                    Envoyer le message
-                  </button>
-                </form>
+                <ContactForm />
               </div>
             </AnimatedSection>
           </div>

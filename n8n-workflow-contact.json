@@ -1,0 +1,116 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "jydanse-contact",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": false
+        }
+      },
+      "id": "a1b2c3d4-1111-4aaa-bbbb-000000000001",
+      "name": "Webhook Contact",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        128
+      ],
+      "webhookId": "jydanse-contact"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const data = $input.item.json.body || $input.item.json;\n\nconst timestamp = data.timestamp || new Date().toISOString();\nconst receivedAt = new Date(timestamp).toLocaleDateString('fr-BE', {\n  day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'\n});\n\nconst subjectRow = data.subject\n  ? `<tr>\n      <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);color:#a0a0a0;font-size:13px;width:100px;\">Sujet</td>\n      <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);color:white;font-size:14px;font-weight:600;\">${data.subject}</td>\n    </tr>`\n  : '';\n\nconst html = `\n<div style=\"font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;background:#1a1215;border-radius:16px;overflow:hidden;\">\n  <div style=\"background:linear-gradient(135deg,#e11d48,#38bdf8);padding:32px;text-align:center;\">\n    <h1 style=\"margin:0;font-size:22px;color:white;font-weight:700;\">Nouveau Message</h1>\n    <p style=\"margin:8px 0 0;color:rgba(255,255,255,0.85);font-size:13px;\">J'y Danse — Formulaire de contact</p>\n  </div>\n  <div style=\"padding:32px;\">\n    <table style=\"width:100%;border-collapse:collapse;\">\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);color:#a0a0a0;font-size:13px;width:100px;\">Nom</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);color:white;font-size:14px;font-weight:600;\">${data.name || '-'}</td>\n      </tr>\n      <tr>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);color:#a0a0a0;font-size:13px;\">Email</td>\n        <td style=\"padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.08);color:white;font-size:14px;font-weight:600;\"><a href=\"mailto:${data.email || ''}\" style=\"color:#fb7185;text-decoration:none;\">${data.email || '-'}</a></td>\n      </tr>\n      ${subjectRow}\n    </table>\n    <div style=\"margin-top:24px;padding:20px;background:rgba(225,29,72,0.1);border-radius:12px;border:1px solid rgba(225,29,72,0.2);\">\n      <p style=\"margin:0 0 8px;color:#fb7185;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;\">Message</p>\n      <p style=\"margin:0;color:white;font-size:14px;line-height:1.7;white-space:pre-wrap;\">${data.message || '-'}</p>\n    </div>\n    <div style=\"margin-top:24px;padding:12px 16px;background:rgba(255,255,255,0.05);border-radius:10px;border:1px solid rgba(255,255,255,0.08);\">\n      <p style=\"margin:0;color:#666;font-size:12px;\">Reçu le ${receivedAt} — source: site web jydanse.be</p>\n    </div>\n  </div>\n</div>`;\n\nconst emailSubject = data.subject\n  ? `${data.subject} — ${data.name || 'Visiteur'}`\n  : `Message de ${data.name || 'Visiteur'} — jydanse.be`;\n\nreturn { json: { subject: emailSubject, html } };"
+      },
+      "id": "a1b2c3d4-2222-4aaa-bbbb-000000000002",
+      "name": "Formater Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "J'y Danse <info@synaplink.be>",
+        "toEmail": "ashot.avakian5000@gmail.com",
+        "subject": "={{ $json.subject }}",
+        "html": "={{ $json.html }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "a1b2c3d4-3333-4aaa-bbbb-000000000003",
+      "name": "Envoyer Email (KSuite)",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        128
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "QTzxdQnruM8saQ1H",
+          "name": "SMTP account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true }) }}",
+        "options": {}
+      },
+      "id": "a1b2c3d4-4444-4aaa-bbbb-000000000004",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        128
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook Contact": {
+      "main": [
+        [
+          {
+            "node": "Formater Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formater Email": {
+      "main": [
+        [
+          {
+            "node": "Envoyer Email (KSuite)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envoyer Email (KSuite)": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "574e2975ca785d811648c3f05ddd6e94c0d1d8904428e80a003563e589b63ba0"
+  }
+}

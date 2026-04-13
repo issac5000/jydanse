@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import HeroBubbles from "@/components/HeroBubbles";
 
 export const metadata: Metadata = {
   title: "Horaires & Tarifs",
@@ -130,6 +131,7 @@ export default function HorairesPage() {
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
         <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-frost/30 to-rose-50" />
+        <HeroBubbles />
         <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"

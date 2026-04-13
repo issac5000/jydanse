@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import HeroBubbles from "@/components/HeroBubbles";
 import ContactForm from "@/components/ContactForm";
 
 function FacebookIcon({ size = 18 }: { size?: number }) {
@@ -48,6 +49,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
         <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-blush/30 to-ciel-50" />
+        <HeroBubbles />
         <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
@@ -91,7 +93,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {contactInfo.map((c, i) => (
                   <AnimatedSection key={c.label} delay={i * 80}>
-                    <div className="rounded-2xl bg-gradient-to-br from-rose-500/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-6 h-full transition-all duration-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rose-100/10">
+                    <div className="rounded-[1.5rem] bg-gradient-to-br from-rose-500/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-6 h-full transition-all duration-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-rose-100/10">
                       <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white mb-4">
                         {c.icon}
                       </div>

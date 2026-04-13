@@ -174,7 +174,7 @@ export default function EquipePage() {
                   <h3 className="font-display text-sm sm:text-base font-extrabold text-foreground leading-tight">
                     {m.name}
                   </h3>
-                  <p className="text-[0.65rem] sm:text-xs font-medium text-ciel-500 mt-1">
+                  <p className="text-xs font-medium text-ciel-500 mt-1">
                     {m.role}
                   </p>
                 </div>
@@ -245,7 +245,7 @@ export default function EquipePage() {
                       {p.specialties.map((s) => (
                         <span
                           key={s}
-                          className="px-2.5 py-0.5 rounded-full bg-white/15 text-[0.65rem] font-medium text-white/80 border border-white/10"
+                          className="px-2.5 py-0.5 rounded-full bg-white/15 text-xs font-medium text-white/80 border border-white/10"
                         >
                           {s}
                         </span>

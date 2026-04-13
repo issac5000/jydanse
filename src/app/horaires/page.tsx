@@ -170,7 +170,7 @@ export default function HorairesPage() {
       <section className="relative py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
               Planning hebdomadaire
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-12">
@@ -195,7 +195,7 @@ export default function HorairesPage() {
                           <span className="text-xs font-bold tabular-nums text-ciel-500">
                             {c.time}
                           </span>
-                          <span className="px-2.5 py-0.5 rounded-full bg-ciel-100/60 text-[0.65rem] font-semibold text-ciel-600">
+                          <span className="px-2.5 py-0.5 rounded-full bg-ciel-100/60 text-xs font-semibold text-ciel-600">
                             {c.level}
                           </span>
                         </div>
@@ -219,7 +219,7 @@ export default function HorairesPage() {
           <AnimatedSection>
             <div className="flex items-center gap-3 mb-3">
               <Calendar size={18} className="text-ciel-500" />
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500">
                 Calendrier annuel
               </p>
             </div>
@@ -367,7 +367,7 @@ export default function HorairesPage() {
         <div className="relative mx-auto max-w-5xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
                 Tarifs saison 2026–2027
               </p>
               <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground">
@@ -387,7 +387,7 @@ export default function HorairesPage() {
                   }`}
                 >
                   {p.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-[0.65rem] font-bold text-ciel-500 uppercase tracking-wider shadow-lg">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-xs font-bold text-ciel-500 uppercase tracking-wider shadow-lg">
                       Populaire
                     </span>
                   )}
@@ -431,7 +431,7 @@ export default function HorairesPage() {
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
               Événements
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-12">
@@ -443,7 +443,7 @@ export default function HorairesPage() {
             {events.map((e, i) => (
               <AnimatedSection key={e.title} delay={i * 100}>
                 <div className="rounded-[1.5rem] bg-gradient-to-br from-ciel-500/65 to-rose-400/65 backdrop-blur-sm border border-white/20 p-7 h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-ciel-100/15">
-                  <span className="inline-flex px-3 py-1 rounded-full bg-white/20 text-[0.65rem] font-bold text-white uppercase tracking-wider mb-4">
+                  <span className="inline-flex px-3 py-1 rounded-full bg-white/20 text-xs font-bold text-white uppercase tracking-wider mb-4">
                     {e.date}
                   </span>
                   <h3 className="font-display text-lg font-extrabold text-white mb-1">{e.title}</h3>

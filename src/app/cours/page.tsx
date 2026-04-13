@@ -201,7 +201,7 @@ export default function CoursPage() {
                       {/* Professor */}
                       <p className="text-white/65 text-sm leading-relaxed mb-1">{c.prof}</p>
                       {c.profTag && (
-                        <p className="text-[0.7rem] text-white/45 mb-5">{c.profTag}</p>
+                        <p className="text-xs text-white/45 mb-5">{c.profTag}</p>
                       )}
                       {!c.profTag && <div className="mb-5" />}
 
@@ -210,7 +210,7 @@ export default function CoursPage() {
                         {c.dances.map((d) => (
                           <span
                             key={d}
-                            className="px-2.5 py-0.5 rounded-full bg-white/15 text-[0.65rem] font-medium text-white/80 border border-white/10"
+                            className="px-2.5 py-0.5 rounded-full bg-white/15 text-xs font-medium text-white/80 border border-white/10"
                           >
                             {d}
                           </span>
@@ -234,7 +234,7 @@ export default function CoursPage() {
                             </div>
                           ))}
                         </div>
-                        <p className="mt-2.5 text-[0.65rem] text-white/35">{c.period}</p>
+                        <p className="mt-2.5 text-xs text-white/35">{c.period}</p>
                       </div>
                     </div>
                   </div>
@@ -253,7 +253,7 @@ export default function CoursPage() {
         <div className="relative z-[4] mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
             <div className="text-center mb-14">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/70 mb-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70 mb-3">
                 Inclus dans votre inscription
               </p>
               <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white">

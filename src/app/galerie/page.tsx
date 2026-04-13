@@ -72,7 +72,7 @@ export default function GaleriePage() {
                 >
                   <div className="text-center transition-transform duration-500 group-hover:scale-110">
                     <Camera size={28} className="text-white/40 mx-auto mb-2" />
-                    <p className="text-[0.65rem] text-white/50 font-medium">Bientôt</p>
+                    <p className="text-xs text-white/50 font-medium">Bientôt</p>
                   </div>
                 </div>
               </AnimatedSection>

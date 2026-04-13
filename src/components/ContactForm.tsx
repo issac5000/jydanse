@@ -52,7 +52,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="text-sm font-medium text-rose-500 hover:text-rose-600 transition-colors"
+          className="text-sm font-medium text-ciel-500 hover:text-ciel-600 transition-colors"
         >
           Envoyer un autre message
         </button>
@@ -71,7 +71,7 @@ export default function ContactForm() {
           id="name"
           name="name"
           required
-          className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+          className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
           placeholder="Votre nom"
         />
       </div>
@@ -84,7 +84,7 @@ export default function ContactForm() {
           id="email"
           name="email"
           required
-          className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+          className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
           placeholder="votre@email.com"
         />
       </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
           type="text"
           id="subject"
           name="subject"
-          className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+          className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
           placeholder="Sujet de votre message"
         />
       </div>
@@ -109,7 +109,7 @@ export default function ContactForm() {
           name="message"
           required
           rows={5}
-          className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all resize-none"
+          className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all resize-none"
           placeholder="Votre message..."
         />
       </div>
@@ -126,7 +126,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="btn-shine group w-full inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="btn-shine group w-full inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === "loading" ? (
           <>

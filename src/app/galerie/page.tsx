@@ -27,7 +27,7 @@ export default function GaleriePage() {
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
         <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-frost/30 to-rose-50" />
         <HeroBubbles />
-        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
+        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-ciel-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
           alt="Logo J'y Danse"
@@ -46,8 +46,8 @@ export default function GaleriePage() {
         <div className="relative h-full flex items-center mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-rose-300" />
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-rose-400">
+              <div className="w-8 h-px bg-ciel-300" />
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-ciel-500">
                 Nos plus beaux moments
               </span>
             </div>
@@ -68,7 +68,7 @@ export default function GaleriePage() {
             {placeholders.map((p, i) => (
               <AnimatedSection key={i} delay={i * 60} className={p.span}>
                 <div
-                  className={`${p.aspect} w-full h-full rounded-2xl bg-gradient-to-br from-rose-500/65 via-rose-400/65 to-ciel-400/65 border border-white/20 backdrop-blur-sm flex items-center justify-center overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-rose-100/15 hover:-translate-y-0.5 group`}
+                  className={`${p.aspect} w-full h-full rounded-2xl bg-gradient-to-br from-ciel-500/65 via-ciel-400/65 to-rose-400/65 border border-white/20 backdrop-blur-sm flex items-center justify-center overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-ciel-100/15 hover:-translate-y-0.5 group`}
                 >
                   <div className="text-center transition-transform duration-500 group-hover:scale-110">
                     <Camera size={28} className="text-white/40 mx-auto mb-2" />
@@ -91,7 +91,7 @@ export default function GaleriePage() {
       <section className="relative py-16">
         <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
-            <div className="rounded-[2rem] bg-gradient-to-br from-rose-500/65 via-rose-400/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-8 sm:p-10">
+            <div className="rounded-[2rem] bg-gradient-to-br from-ciel-500/65 via-ciel-400/65 to-rose-400/65 backdrop-blur-sm border border-white/20 p-8 sm:p-10">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
                   <Info size={18} className="text-white" />
@@ -106,7 +106,7 @@ export default function GaleriePage() {
                     retirée, faites-le savoir et elle sera supprimée sans délai.
                   </p>
                   <p className="mt-3 text-white/50 font-display font-medium">
-                    — Boucq Dominique, présidente
+                    — Anne-Dominique Boucq Campitelli, présidente
                   </p>
                 </div>
               </div>

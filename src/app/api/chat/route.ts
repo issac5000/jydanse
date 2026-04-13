@@ -4,7 +4,7 @@ Voici toutes les informations sur le club :
 
 ## Le club
 - Nom : J'y Danse ASBL
-- Fondé en 1992
+- Fondé en 1981
 - Affilié à la Ligue de la Danse
 - Ambiance conviviale et familiale
 - Tous niveaux acceptés (débutants et confirmés)

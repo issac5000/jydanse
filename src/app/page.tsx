@@ -19,8 +19,8 @@ const courses = [
     prof: "Eric Dehant",
     day: "Mercredi",
     dances: ["Valse lente", "Tango", "Quick-step", "Valse viennoise", "Slow-Fox", "Cha-cha", "Rumba", "Jive", "Samba", "Paso doble"],
-    gradient: "from-rose-500/65 to-rose-400/65",
-    accent: "bg-rose-400",
+    gradient: "from-ciel-500/65 to-ciel-400/65",
+    accent: "bg-ciel-400",
   },
   {
     number: "02",
@@ -29,8 +29,8 @@ const courses = [
     prof: "Ivan Hidalgo O'Farrill",
     day: "Jeudi",
     dances: ["Salsa", "Bachata", "Reggae", "Merengue", "Cumbia"],
-    gradient: "from-ciel-500/65 to-ciel-400/65",
-    accent: "bg-ciel-400",
+    gradient: "from-ciel-500/65 to-rose-400/65",
+    accent: "bg-rose-400",
   },
   {
     number: "03",
@@ -39,13 +39,13 @@ const courses = [
     prof: "Didier & Cowine Paschal",
     day: "Mardi",
     dances: ["Rock 4T", "Soul", "Boogie"],
-    gradient: "from-rose-500/65 via-rose-400/65 to-ciel-400/65",
-    accent: "bg-gradient-to-r from-rose-400 to-ciel-400",
+    gradient: "from-ciel-500/65 via-ciel-400/65 to-rose-400/65",
+    accent: "bg-gradient-to-r from-ciel-400 to-rose-400",
   },
 ];
 
 const stats = [
-  { num: 1992, suffix: "", label: "Année de fondation", icon: <Clock size={22} /> },
+  { num: 1981, suffix: "", label: "Année de fondation", icon: <Clock size={22} /> },
   { num: 3, suffix: "", label: "Soirées par semaine", icon: <Sparkles size={22} /> },
   { num: 28, suffix: "", label: "Leçons par saison", icon: <Award size={22} /> },
   { num: 180, suffix: "€", label: "Par an / personne", icon: <Heart size={22} /> },
@@ -69,18 +69,18 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
 
         {/* Decorative lines */}
-        <div className="absolute top-32 right-16 w-px h-40 bg-gradient-to-b from-transparent via-rose-200/40 to-transparent hidden lg:block" />
+        <div className="absolute top-32 right-16 w-px h-40 bg-gradient-to-b from-transparent via-ciel-200/40 to-transparent hidden lg:block" />
         <div className="absolute bottom-32 left-20 w-32 h-px bg-gradient-to-r from-transparent via-ciel-200/40 to-transparent hidden lg:block" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 w-full py-20">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             {/* Eyebrow */}
             <div className="reveal-up inline-flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-rose-300" />
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-rose-400">
+              <div className="w-8 h-px bg-ciel-300" />
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-ciel-500">
                 Club de danse sportive — Gilly
               </span>
-              <div className="w-8 h-px bg-rose-300" />
+              <div className="w-8 h-px bg-ciel-300" />
             </div>
 
             {/* Main headline */}
@@ -89,7 +89,7 @@ export default function Home() {
                 Venez danser
               </span>
               <span className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight mt-1">
-                <span className="bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 bg-clip-text text-transparent">
                   avec nous !
                 </span>
               </span>
@@ -106,7 +106,7 @@ export default function Home() {
             <div className="reveal-up delay-400 mt-10 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/inscription"
-                className="btn-shine group inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500 hover:-translate-y-0.5"
+                className="btn-shine group inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 hover:-translate-y-0.5"
               >
                 Rejoindre le club
                 <ArrowUpRight
@@ -117,7 +117,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/cours"
-                className="group inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-medium text-foreground/60 rounded-full border border-rose-200/60 hover:border-rose-300 hover:bg-blush/50 transition-all duration-500"
+                className="group inline-flex items-center justify-center gap-2 px-9 py-4 text-base font-medium text-foreground/60 rounded-full border border-ciel-200/60 hover:border-ciel-300 hover:bg-frost/50 transition-all duration-500"
               >
                 Découvrir nos cours
               </Link>
@@ -162,9 +162,9 @@ export default function Home() {
                   />
                 </div>
                 {/* Floating accent card */}
-                <div className="absolute -bottom-6 -right-6 rounded-2xl px-6 py-4 bg-gradient-to-br from-rose-500/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 shadow-xl">
-                  <p className="font-display text-2xl font-extrabold text-white">30+</p>
-                  <p className="text-sm text-white/70">années d&apos;expérience</p>
+                <div className="absolute -bottom-6 -right-6 rounded-2xl px-6 py-4 bg-gradient-to-br from-ciel-500/65 to-rose-400/65 backdrop-blur-sm border border-white/20 shadow-xl">
+                  <p className="font-display text-2xl font-extrabold text-white">45+</p>
+                  <p className="text-sm text-white/70">années de passion</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -172,7 +172,7 @@ export default function Home() {
             {/* Right — text */}
             <div>
               <AnimatedSection>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
                   Notre philosophie
                 </p>
                 <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground leading-tight mb-8">
@@ -204,7 +204,7 @@ export default function Home() {
                   ].map((f) => (
                     <div
                       key={f.label}
-                      className="flex items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-rose-500/65 to-ciel-400/65 backdrop-blur-sm border border-white/20"
+                      className="flex items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-ciel-500/65 to-rose-400/65 backdrop-blur-sm border border-white/20"
                     >
                       <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-white">
                         {f.icon}
@@ -225,7 +225,7 @@ export default function Home() {
       {/* ═══════════════ COURSES ═══════════════ */}
       <section className="relative py-28 sm:py-36 overflow-hidden">
         <div className="absolute inset-0 bg-background" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-rose-50/50 rounded-full blur-[160px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-ciel-50/50 rounded-full blur-[160px]" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           {/* Photo banner + title overlay */}
@@ -239,7 +239,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-300 mb-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-300 mb-3">
                   3 soirées, tous niveaux
                 </p>
                 <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
@@ -254,7 +254,7 @@ export default function Home() {
             {courses.map((c, i) => (
               <AnimatedSection key={c.number} delay={i * 120}>
                 <div
-                  className={`group relative rounded-[2rem] bg-gradient-to-br ${c.gradient} backdrop-blur-sm border border-white/20 p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-rose-200/15 h-full flex flex-col`}
+                  className={`group relative rounded-[2rem] bg-gradient-to-br ${c.gradient} backdrop-blur-sm border border-white/20 p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-ciel-200/15 h-full flex flex-col`}
                 >
                   <span className="absolute -top-4 -right-2 font-display text-[10rem] font-extrabold text-white/10 leading-none select-none">
                     {c.number}
@@ -296,7 +296,7 @@ export default function Home() {
             <div className="flex justify-center mt-12">
               <Link
                 href="/cours"
-                className="btn-shine inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-lg hover:shadow-rose-300/25 transition-all duration-500 hover:-translate-y-0.5"
+                className="btn-shine inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-lg hover:shadow-ciel-300/25 transition-all duration-500 hover:-translate-y-0.5"
               >
                 Tout découvrir
                 <ArrowUpRight size={16} strokeWidth={2.5} />
@@ -308,7 +308,7 @@ export default function Home() {
 
       {/* ═══════════════ STATS BAND ═══════════════ */}
       <section className="relative py-32 sm:py-36 overflow-hidden">
-        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65" style={{ clipPath: "polygon(0 0, 100% 8%, 100% 92%, 0 100%)" }} />
+        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-ciel-500/65 via-ciel-400/65 to-rose-400/65" style={{ clipPath: "polygon(0 0, 100% 8%, 100% 92%, 0 100%)" }} />
         <div className="absolute -inset-x-1 -inset-y-0 grain" style={{ clipPath: "polygon(0 0, 100% 8%, 100% 92%, 0 100%)" }} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
@@ -350,24 +350,24 @@ export default function Home() {
 
           <div className="relative max-w-4xl mx-auto">
             {/* Vertical line */}
-            <div className="absolute left-[22px] sm:left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-rose-300/50 to-transparent" />
+            <div className="absolute left-[22px] sm:left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-ciel-300/50 to-transparent" />
 
             <div className="space-y-10">
             {[
-              { date: "2–4 sept.", title: "Portes ouvertes", desc: "Venez essayer gratuitement", color: "from-rose-500/65 to-rose-400/65", float: "animate-float-gentle" },
-              { date: "16 oct.", title: "Soirée Halloween", desc: "Entraînement déguisé", color: "from-ciel-500/65 to-ciel-400/65", float: "animate-float-slow" },
-              { date: "18 déc.", title: "Soirée de Noël", desc: "Ambiance festive", color: "from-rose-500/65 to-ciel-400/65", float: "animate-float-gentle" },
-              { date: "12 fév.", title: "Soirée Carnaval", desc: "Déguisement souhaité", color: "from-ciel-400/65 to-rose-400/65", float: "animate-float-slow" },
+              { date: "2–4 sept.", title: "Portes ouvertes", desc: "Venez essayer gratuitement", color: "from-ciel-500/65 to-ciel-400/65", float: "animate-float-gentle" },
+              { date: "16 oct.", title: "Soirée Halloween", desc: "Entraînement déguisé", color: "from-ciel-500/65 to-rose-400/65", float: "animate-float-slow" },
+              { date: "18 déc.", title: "Soirée de Noël", desc: "Ambiance festive", color: "from-ciel-500/65 to-rose-400/65", float: "animate-float-gentle" },
+              { date: "12 fév.", title: "Soirée Carnaval", desc: "Déguisement souhaité", color: "from-rose-400/65 to-ciel-500/65", float: "animate-float-slow" },
             ].map((e, i) => (
               <AnimatedSection key={e.title} delay={i * 120}>
                 <div className={`relative sm:flex sm:items-center ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}>
                   {/* Dot on the line */}
-                  <div className="absolute left-[22px] sm:left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-rose-400 to-ciel-400 ring-4 ring-white z-10" />
+                  <div className="absolute left-[22px] sm:left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-ciel-400 to-rose-400 ring-4 ring-white z-10" />
 
                   {/* Card */}
                   <div className={`ml-12 sm:ml-0 sm:w-[calc(50%-2rem)] ${i % 2 === 0 ? "sm:mr-auto sm:pr-8" : "sm:ml-auto sm:pl-8"}`}>
                     <div
-                      className={`group relative rounded-[1.5rem] bg-gradient-to-br ${e.color} backdrop-blur-sm p-7 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100/20 border border-white/20 ${e.float}`}
+                      className={`group relative rounded-[1.5rem] bg-gradient-to-br ${e.color} backdrop-blur-sm p-7 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-ciel-100/20 border border-white/20 ${e.float}`}
                       style={{ animationDelay: `${i * 2}s` }}
                     >
                       <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-xs font-bold text-white uppercase tracking-wider mb-4">
@@ -392,7 +392,7 @@ export default function Home() {
         {/* Fill only the corner triangles to match adjacent sections */}
         <div className="absolute inset-0 bg-frost/30" style={{ clipPath: "polygon(0 0, 100% 0, 0 8%)" }} />
         <div className="absolute inset-0 bg-background" style={{ clipPath: "polygon(0 92%, 100% 100%, 0 100%)" }} />
-        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65" style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 92%)" }} />
+        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-ciel-500/65 via-ciel-400/65 to-rose-400/65" style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 92%)" }} />
         <div className="absolute -inset-x-1 -inset-y-0 grain" style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 92%)" }} />
 
         <div className="relative z-[4] mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
@@ -450,11 +450,11 @@ export default function Home() {
       {/* ═══════════════ FINAL CTA ═══════════════ */}
       <section className="relative py-32 sm:py-40 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-frost/30" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-rose-200/15 rounded-full blur-[160px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-ciel-200/15 rounded-full blur-[160px]" />
 
         <div className="relative text-center mx-auto max-w-3xl px-5 sm:px-8">
           <AnimatedSection>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-4">
               Première leçon ? C&apos;est par ici
             </p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
@@ -467,7 +467,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/inscription"
-                className="btn-shine group inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500 hover:-translate-y-0.5"
+                className="btn-shine group inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 hover:-translate-y-0.5"
               >
                 Pré-inscription en ligne
                 <ArrowUpRight
@@ -478,7 +478,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-medium text-foreground/50 rounded-full border border-rose-200/50 hover:border-rose-300 hover:bg-blush/50 transition-all duration-500"
+                className="inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-medium text-foreground/50 rounded-full border border-ciel-200/50 hover:border-ciel-300 hover:bg-frost/50 transition-all duration-500"
               >
                 Nous contacter
               </Link>

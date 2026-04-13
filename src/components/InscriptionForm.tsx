@@ -71,7 +71,7 @@ export default function InscriptionForm() {
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="text-sm font-medium text-rose-500 hover:text-rose-600 transition-colors"
+          className="text-sm font-medium text-ciel-500 hover:text-ciel-600 transition-colors"
         >
           Envoyer une autre inscription
         </button>
@@ -96,7 +96,7 @@ export default function InscriptionForm() {
               id="fullname"
               name="fullname"
               required
-              className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+              className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
             />
           </div>
           <div className="sm:col-span-2">
@@ -108,7 +108,7 @@ export default function InscriptionForm() {
               id="address"
               name="address"
               placeholder="Rue, N°, CP, Localité"
-              className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+              className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
             />
           </div>
           <div>
@@ -119,7 +119,7 @@ export default function InscriptionForm() {
               type="tel"
               id="phone"
               name="phone"
-              className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+              className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
             />
           </div>
           <div>
@@ -131,7 +131,7 @@ export default function InscriptionForm() {
               id="insc-email"
               name="email"
               required
-              className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+              className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
             />
           </div>
           <div>
@@ -142,7 +142,7 @@ export default function InscriptionForm() {
               type="text"
               id="birthdate"
               name="birthdate"
-              className="w-full rounded-xl border border-rose-200/50 bg-blush/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-rose-300 focus:ring-2 focus:ring-rose-200/30 outline-none transition-all"
+              className="w-full rounded-xl border border-ciel-200/50 bg-frost/40 px-5 py-3.5 text-sm text-foreground placeholder:text-foreground/20 focus:border-ciel-300 focus:ring-2 focus:ring-ciel-200/30 outline-none transition-all"
             />
           </div>
           <div>
@@ -152,7 +152,7 @@ export default function InscriptionForm() {
             <div className="flex gap-6">
               {["Homme", "Femme"].map((s) => (
                 <label key={s} className="flex items-center gap-2.5 text-sm text-foreground/55 cursor-pointer group">
-                  <input type="radio" name="sex" value={s} required className="w-4 h-4 accent-rose-500" />
+                  <input type="radio" name="sex" value={s} required className="w-4 h-4 accent-ciel-500" />
                   <span className="group-hover:text-foreground/70 transition-colors">{s}</span>
                 </label>
               ))}
@@ -162,7 +162,7 @@ export default function InscriptionForm() {
       </div>
 
       {/* Separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-rose-200/40 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-ciel-200/40 to-transparent" />
 
       {/* Course selection */}
       <div>
@@ -172,7 +172,7 @@ export default function InscriptionForm() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {Object.entries(courseOptions).map(([category, options]) => (
             <div key={category}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-rose-500 mb-4">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-ciel-500 mb-4">
                 {category}
               </h3>
               <div className="space-y-3">
@@ -182,7 +182,7 @@ export default function InscriptionForm() {
                       type="checkbox"
                       name="courses"
                       value={opt}
-                      className="w-4 h-4 rounded accent-rose-500"
+                      className="w-4 h-4 rounded accent-ciel-500"
                     />
                     <span className="text-sm text-foreground/45 group-hover:text-foreground/65 transition-colors">
                       {opt}
@@ -196,7 +196,7 @@ export default function InscriptionForm() {
       </div>
 
       {/* Separator */}
-      <div className="h-px bg-gradient-to-r from-transparent via-rose-200/40 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-ciel-200/40 to-transparent" />
 
       {/* RGPD */}
       <div className="rounded-xl bg-ciel-100/40 border border-ciel-200/40 p-5">
@@ -211,12 +211,12 @@ export default function InscriptionForm() {
 
       {/* Terms */}
       <label className="flex items-start gap-3 cursor-pointer group">
-        <input type="checkbox" required className="w-4 h-4 mt-0.5 rounded accent-rose-500" />
+        <input type="checkbox" required className="w-4 h-4 mt-0.5 rounded accent-ciel-500" />
         <span className="text-sm text-foreground/40 leading-relaxed group-hover:text-foreground/55 transition-colors">
           Je déclare avoir pris connaissance du ROI du club.
           J&apos;atteste sur l&apos;honneur l&apos;absence de
           contre-indications à la pratique de la danse.{" "}
-          <Link href="/roi" className="text-rose-500 hover:text-rose-600 underline underline-offset-2">
+          <Link href="/roi" className="text-ciel-500 hover:text-ciel-600 underline underline-offset-2">
             Voir les termes
           </Link>
         </span>
@@ -235,7 +235,7 @@ export default function InscriptionForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="btn-shine group w-full inline-flex items-center justify-center gap-2 px-10 py-4.5 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="btn-shine group w-full inline-flex items-center justify-center gap-2 px-10 py-4.5 text-sm font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === "loading" ? (
           <>

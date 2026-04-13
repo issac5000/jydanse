@@ -177,7 +177,7 @@ export default function Chatbot() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label={open ? "Fermer l'assistant" : "Ouvrir l'assistant"}
-        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-rose-400 to-ciel-400 text-white shadow-lg shadow-rose-300/30 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-rose-300/40 hover:scale-105 cursor-pointer ${
+        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-ciel-400 to-rose-400 text-white shadow-lg shadow-ciel-300/30 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-ciel-300/40 hover:scale-105 cursor-pointer ${
           open ? "" : "animate-breathe"
         }`}
       >
@@ -186,9 +186,9 @@ export default function Chatbot() {
 
       {/* ── Chat modal ── */}
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-8rem)] rounded-[2rem] bg-[#f9f4f6] shadow-2xl shadow-rose-200/20 flex flex-col overflow-hidden border border-rose-200/50">
+        <div className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-8rem)] rounded-[2rem] bg-[#f4f7fa] shadow-2xl shadow-ciel-200/20 flex flex-col overflow-hidden border border-ciel-200/50">
           {/* Header */}
-          <div className="bg-gradient-to-r from-rose-400 to-ciel-400 px-6 py-4 flex items-center gap-3 shrink-0">
+          <div className="bg-gradient-to-r from-ciel-400 to-rose-400 px-6 py-4 flex items-center gap-3 shrink-0">
             <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
               <MessageCircle size={18} className="text-white" />
             </div>
@@ -212,7 +212,7 @@ export default function Chatbot() {
             {/* Welcome */}
             {messages.length === 0 && (
               <div className="space-y-3">
-                <div className="bg-blush/50 rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground/70 leading-relaxed max-w-[85%]">
+                <div className="bg-frost/50 rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground/70 leading-relaxed max-w-[85%]">
                   Bonjour ! Je suis l&apos;assistant du club <strong>J&apos;y Danse</strong>. Comment puis-je t&apos;aider ?
                 </div>
                 <div className="flex flex-col gap-2">
@@ -220,9 +220,9 @@ export default function Chatbot() {
                     <button
                       key={s.text}
                       onClick={() => sendMessage(s.text)}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-100/70 border border-rose-200/50 text-sm text-foreground/60 hover:bg-rose-200/60 hover:border-rose-300 transition-all duration-200 text-left cursor-pointer"
+                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ciel-100/70 border border-ciel-200/50 text-sm text-foreground/60 hover:bg-ciel-200/60 hover:border-ciel-300 transition-all duration-200 text-left cursor-pointer"
                     >
-                      <span className="text-rose-400 shrink-0">{s.icon}</span>
+                      <span className="text-ciel-500 shrink-0">{s.icon}</span>
                       {s.text}
                     </button>
                   ))}
@@ -241,8 +241,8 @@ export default function Chatbot() {
                 <div
                   className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                     msg.role === "user"
-                      ? "bg-gradient-to-r from-rose-400 to-ciel-400 text-white rounded-br-md"
-                      : "bg-blush/50 text-foreground/70 rounded-tl-md"
+                      ? "bg-gradient-to-r from-ciel-400 to-rose-400 text-white rounded-br-md"
+                      : "bg-frost/50 text-foreground/70 rounded-tl-md"
                   }`}
                 >
                   {msg.role === "assistant" ? (
@@ -250,7 +250,7 @@ export default function Chatbot() {
                       {msg.content
                         ? renderMarkdown(msg.content)
                         : streaming && (
-                            <span className="inline-block w-1.5 h-4 bg-rose-400/60 rounded-full animate-pulse" />
+                            <span className="inline-block w-1.5 h-4 bg-ciel-400/60 rounded-full animate-pulse" />
                           )}
                     </>
                   ) : (
@@ -266,7 +266,7 @@ export default function Chatbot() {
             onSubmit={handleSubmit}
             className="shrink-0 px-4 pb-4 pt-2"
           >
-            <div className="flex items-center gap-2 bg-blush/60 border border-rose-200/50 rounded-full pl-4 pr-1.5 py-1.5">
+            <div className="flex items-center gap-2 bg-frost/60 border border-ciel-200/50 rounded-full pl-4 pr-1.5 py-1.5">
               <input
                 ref={inputRef}
                 type="text"
@@ -279,7 +279,7 @@ export default function Chatbot() {
               <button
                 type="submit"
                 disabled={!input.trim() || streaming}
-                className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-ciel-400 text-white flex items-center justify-center shrink-0 disabled:opacity-40 hover:shadow-md hover:shadow-rose-200/30 transition-all duration-200 cursor-pointer disabled:cursor-not-allowed"
+                className="w-8 h-8 rounded-full bg-gradient-to-r from-ciel-400 to-rose-400 text-white flex items-center justify-center shrink-0 disabled:opacity-40 hover:shadow-md hover:shadow-ciel-200/30 transition-all duration-200 cursor-pointer disabled:cursor-not-allowed"
               >
                 <Send size={14} />
               </button>

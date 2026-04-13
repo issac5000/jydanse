@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const webhookUrl = process.env.N8N_CONTACT_WEBHOOK_URL;
+  const ackWebhookUrl = process.env.N8N_CONTACT_ACK_WEBHOOK_URL;
 
   if (!webhookUrl) {
     return NextResponse.json(
@@ -12,14 +13,15 @@ export async function POST(req: Request) {
 
   try {
     const body = await req.json();
+    const payload = JSON.stringify({
+      ...body,
+      timestamp: new Date().toISOString(),
+    });
 
     const res = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...body,
-        timestamp: new Date().toISOString(),
-      }),
+      body: payload,
     });
 
     if (!res.ok) {
@@ -27,6 +29,15 @@ export async function POST(req: Request) {
         { error: "Erreur lors de l'envoi" },
         { status: 502 }
       );
+    }
+
+    // Accusé de réception (fire-and-forget)
+    if (ackWebhookUrl) {
+      fetch(ackWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).catch(() => {});
     }
 
     return NextResponse.json({ success: true });

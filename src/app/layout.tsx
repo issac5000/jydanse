@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | J'y Danse",
   },
   description:
-    "Club de danse sportive à Gilly (Charleroi). Cours de danses de salon, latino, line dance, rock & swing. Affilié à la Ligue de la Danse. Ambiance conviviale depuis 1992.",
+    "Club de danse sportive à Gilly (Charleroi). Cours de danses de salon, latino, line dance, rock & swing. Affilié à la Ligue de la Danse. Ambiance conviviale depuis 1981.",
   keywords: [
     "danse", "cours de danse", "Gilly", "Charleroi", "danse de salon",
     "salsa", "bachata", "line dance", "rock", "swing", "club de danse",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "J'y Danse",
     title: "J'y Danse — Club de danse sportive à Gilly",
     description:
-      "Club de danse sportive à Gilly (Charleroi). Cours de danses de salon, latino, line dance, rock & swing. Ambiance conviviale depuis 1992.",
+      "Club de danse sportive à Gilly (Charleroi). Cours de danses de salon, latino, line dance, rock & swing. Ambiance conviviale depuis 1981.",
   },
   twitter: {
     card: "summary_large_image",

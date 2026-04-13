@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 const schedule = [
   {
     day: "Mardi",
-    accent: "from-rose-400 to-rose-500",
-    dotColor: "bg-rose-400",
+    accent: "from-ciel-400 to-ciel-500",
+    dotColor: "bg-ciel-400",
     courses: [
       { time: "19h00 – 20h30", title: "Danses en ligne", prof: "Didier & Cowine Paschal", level: "Tous niveaux" },
       { time: "20h30 – 21h30", title: "Rock 4T, Soul & Boogie", prof: "Didier & Cowine Paschal", level: "Tous niveaux" },
@@ -32,8 +32,8 @@ const schedule = [
   },
   {
     day: "Jeudi",
-    accent: "from-rose-400 to-ciel-400",
-    dotColor: "bg-gradient-to-r from-rose-400 to-ciel-400",
+    accent: "from-ciel-400 to-rose-400",
+    dotColor: "bg-gradient-to-r from-ciel-400 to-rose-400",
     courses: [
       { time: "19h00 – 20h00", title: "Latino solo", prof: "Ivan Hidalgo O'Farrill", level: "Tous niveaux" },
       { time: "20h00 – 21h00", title: "Salsa & Bachata", prof: "Ivan Hidalgo O'Farrill", level: "Débutant" },
@@ -132,7 +132,7 @@ export default function HorairesPage() {
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
         <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-frost/30 to-rose-50" />
         <HeroBubbles />
-        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
+        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-ciel-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
           alt="Logo J'y Danse"
@@ -170,7 +170,7 @@ export default function HorairesPage() {
       <section className="relative py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
               Planning hebdomadaire
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-12">
@@ -181,7 +181,7 @@ export default function HorairesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {schedule.map((s, si) => (
               <AnimatedSection key={s.day} delay={si * 120}>
-                <div className="rounded-[2rem] overflow-hidden border border-blush/40 bg-blush/30 backdrop-blur-sm h-full">
+                <div className="rounded-[2rem] overflow-hidden border border-frost/40 bg-frost/30 backdrop-blur-sm h-full">
                   <div className={`bg-gradient-to-r ${s.accent} px-8 py-5`}>
                     <h3 className="text-lg font-bold text-white tracking-wide">{s.day}</h3>
                   </div>
@@ -189,10 +189,10 @@ export default function HorairesPage() {
                     {s.courses.map((c, ci) => (
                       <div
                         key={ci}
-                        className="group p-4 rounded-xl hover:bg-rose-100/40 transition-colors"
+                        className="group p-4 rounded-xl hover:bg-ciel-100/40 transition-colors"
                       >
                         <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-xs font-bold tabular-nums text-rose-500">
+                          <span className="text-xs font-bold tabular-nums text-ciel-500">
                             {c.time}
                           </span>
                           <span className="px-2.5 py-0.5 rounded-full bg-ciel-100/60 text-[0.65rem] font-semibold text-ciel-600">
@@ -251,7 +251,7 @@ export default function HorairesPage() {
               </div>
               <div className="flex items-center gap-2.5">
                 <span className="relative w-5 h-5 rounded-full ring-1 ring-foreground/10">
-                  <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-rose-500 ring-2 ring-white" />
+                  <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-ciel-500 ring-2 ring-white" />
                 </span>
                 <span className="text-sm text-foreground/50">Événement</span>
               </div>
@@ -315,7 +315,7 @@ export default function HorairesPage() {
                               <span className={course === "jeudi" ? "-rotate-45" : ""}>{day}</span>
                             </div>
                             {event && (
-                              <span className="absolute -top-px -right-px w-1.5 h-1.5 rounded-full bg-rose-500 ring-1 ring-white" />
+                              <span className="absolute -top-px -right-px w-1.5 h-1.5 rounded-full bg-ciel-500 ring-1 ring-white" />
                             )}
                           </div>
                         );
@@ -329,7 +329,7 @@ export default function HorairesPage() {
 
           <AnimatedSection delay={300}>
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
-              <div className="rounded-2xl bg-blush/35 backdrop-blur-sm border border-blush/40 p-7 sm:p-8">
+              <div className="rounded-2xl bg-frost/35 backdrop-blur-sm border border-frost/40 p-7 sm:p-8">
                 <h4 className="font-display text-lg font-extrabold text-foreground mb-5">
                   Congés scolaires
                 </h4>
@@ -340,7 +340,7 @@ export default function HorairesPage() {
                   <li><span className="text-foreground/70 font-medium">Printemps</span> — 26/04 → 09/05</li>
                 </ul>
               </div>
-              <div className="rounded-2xl bg-blush/35 backdrop-blur-sm border border-blush/40 p-7 sm:p-8">
+              <div className="rounded-2xl bg-frost/35 backdrop-blur-sm border border-frost/40 p-7 sm:p-8">
                 <h4 className="font-display text-lg font-extrabold text-foreground mb-5">
                   Jours fériés
                 </h4>
@@ -362,12 +362,12 @@ export default function HorairesPage() {
       {/* Pricing */}
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-cream to-background" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-100/30 rounded-full blur-[140px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-ciel-100/30 rounded-full blur-[140px]" />
 
         <div className="relative mx-auto max-w-5xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
                 Tarifs saison 2026–2027
               </p>
               <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground">
@@ -382,12 +382,12 @@ export default function HorairesPage() {
                 <div
                   className={`relative rounded-[2rem] p-8 text-center transition-all duration-500 hover:-translate-y-1 ${
                     p.popular
-                      ? "bg-gradient-to-br from-rose-500 via-rose-400 to-ciel-400 text-white shadow-2xl shadow-rose-300/25 scale-[1.03]"
-                      : "glass hover:shadow-xl hover:shadow-rose-100/15"
+                      ? "bg-gradient-to-br from-ciel-500 via-ciel-400 to-rose-400 text-white shadow-2xl shadow-ciel-300/25 scale-[1.03]"
+                      : "glass hover:shadow-xl hover:shadow-ciel-100/15"
                   }`}
                 >
                   {p.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-[0.65rem] font-bold text-rose-500 uppercase tracking-wider shadow-lg">
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-[0.65rem] font-bold text-ciel-500 uppercase tracking-wider shadow-lg">
                       Populaire
                     </span>
                   )}
@@ -404,8 +404,8 @@ export default function HorairesPage() {
                     href="/inscription"
                     className={`inline-flex items-center justify-center w-full py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
                       p.popular
-                        ? "bg-white text-rose-500 hover:shadow-lg"
-                        : "bg-gradient-to-r from-rose-500 to-ciel-400 text-white hover:shadow-lg hover:shadow-rose-300/20"
+                        ? "bg-white text-ciel-500 hover:shadow-lg"
+                        : "bg-gradient-to-r from-ciel-500 to-rose-400 text-white hover:shadow-lg hover:shadow-ciel-300/20"
                     }`}
                   >
                     S&apos;inscrire
@@ -416,7 +416,7 @@ export default function HorairesPage() {
           </div>
 
           <AnimatedSection delay={400}>
-            <div className="mt-10 rounded-2xl bg-gradient-to-br from-rose-400/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-6 max-w-2xl mx-auto text-sm text-white/70 space-y-2">
+            <div className="mt-10 rounded-2xl bg-gradient-to-br from-ciel-400/65 to-rose-400/65 backdrop-blur-sm border border-white/20 p-6 max-w-2xl mx-auto text-sm text-white/70 space-y-2">
               <p><strong className="text-white">Enfants -15 ans :</strong> 6 € (assurance seule) si parents inscrits, sinon 95 €.</p>
               <p>Les cours non suivis ne sont ni déduits, ni remboursés.</p>
               <p><strong className="text-white">Compte bancaire :</strong> BE50 125-0107500-18</p>
@@ -431,7 +431,7 @@ export default function HorairesPage() {
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <AnimatedSection>
-            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-rose-400 mb-3">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
               Événements
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-12">
@@ -442,7 +442,7 @@ export default function HorairesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {events.map((e, i) => (
               <AnimatedSection key={e.title} delay={i * 100}>
-                <div className="rounded-[1.5rem] bg-gradient-to-br from-rose-500/65 to-ciel-400/65 backdrop-blur-sm border border-white/20 p-7 h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100/15">
+                <div className="rounded-[1.5rem] bg-gradient-to-br from-ciel-500/65 to-rose-400/65 backdrop-blur-sm border border-white/20 p-7 h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-ciel-100/15">
                   <span className="inline-flex px-3 py-1 rounded-full bg-white/20 text-[0.65rem] font-bold text-white uppercase tracking-wider mb-4">
                     {e.date}
                   </span>
@@ -466,7 +466,7 @@ export default function HorairesPage() {
             <p className="text-foreground/40 text-lg sm:text-xl leading-relaxed mb-12 font-light">28 leçons, entraînements gratuits, assurance comprise.</p>
             <Link
               href="/inscription"
-              className="btn-shine inline-flex items-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500 hover:-translate-y-0.5"
+              className="btn-shine inline-flex items-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 hover:-translate-y-0.5"
             >
               S&apos;inscrire maintenant
               <ArrowUpRight size={16} />

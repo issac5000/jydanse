@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-2xl bg-rose-50/75 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-2xl bg-ciel-50/75 ${
           scrolled
             ? "py-3 shadow-[0_4px_30px_rgba(0,0,0,0.06)]"
             : "py-5"
@@ -47,8 +47,8 @@ export default function Header() {
                 <span className="font-display text-[1.15rem] font-extrabold tracking-tight text-foreground leading-tight">
                   J&apos;y Danse
                 </span>
-                <span className="text-xs font-medium uppercase tracking-[0.25em] text-rose-400 leading-none mt-0.5">
-                  depuis 1992
+                <span className="text-xs font-medium uppercase tracking-[0.25em] text-ciel-500 leading-none mt-0.5">
+                  depuis 1981
                 </span>
               </div>
             </Link>
@@ -66,7 +66,7 @@ export default function Header() {
               ))}
               <Link
                 href="/inscription"
-                className="btn-shine ml-4 inline-flex items-center gap-1.5 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-lg hover:shadow-rose-300/30 transition-all duration-500 hover:-translate-y-0.5"
+                className="btn-shine ml-4 inline-flex items-center gap-1.5 px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-lg hover:shadow-ciel-300/30 transition-all duration-500 hover:-translate-y-0.5"
               >
                 S&apos;inscrire
                 <ArrowUpRight size={14} strokeWidth={2.5} />
@@ -81,7 +81,7 @@ export default function Header() {
             {/* Mobile toggle */}
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl hover:bg-rose-100/60 transition-colors"
+              className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center rounded-xl hover:bg-ciel-100/60 transition-colors"
               aria-label="Menu"
             >
               {open ? (
@@ -102,7 +102,7 @@ export default function Header() {
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-rose-50/98 via-blush/95 to-ciel-50/98 backdrop-blur-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ciel-50/98 via-frost/95 to-rose-50/98 backdrop-blur-2xl" />
         <nav className="relative flex flex-col items-center justify-center h-full gap-2 px-8">
           <Link
             href="/"
@@ -116,7 +116,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`text-xl font-light text-foreground/60 hover:text-rose-500 transition-all duration-300 py-2 reveal-up`}
+              className={`text-xl font-light text-foreground/60 hover:text-ciel-500 transition-all duration-300 py-2 reveal-up`}
               style={{ animationDelay: `${(i + 1) * 80}ms` }}
             >
               {link.label}
@@ -125,7 +125,7 @@ export default function Header() {
           <Link
             href="/inscription"
             onClick={() => setOpen(false)}
-            className="mt-8 btn-shine inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white bg-gradient-to-r from-rose-500 to-ciel-400 rounded-full reveal-up delay-500"
+            className="mt-8 btn-shine inline-flex items-center gap-2 px-10 py-4 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 to-rose-400 rounded-full reveal-up delay-500"
           >
             S&apos;inscrire
             <ArrowUpRight size={16} />

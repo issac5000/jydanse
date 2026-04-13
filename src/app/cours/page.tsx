@@ -22,7 +22,7 @@ const courses = [
     profTag: "Coach de danse aux États-Unis",
     profImage: "/eric-prof.webp",
     initial: "E",
-    avatarGradient: "from-rose-300 to-rose-400",
+    avatarGradient: "from-ciel-300 to-ciel-500",
     day: "Mercredi",
     period: "10/09/25 au 10/06/26",
     levels: [
@@ -31,7 +31,7 @@ const courses = [
       { name: "Perfectionnement 2", time: "21h00 – 22h00" },
     ],
     dances: ["Valse lente", "Tango", "Quick-step", "Valse viennoise", "Slow-Fox", "Cha-cha", "Rumba", "Jive", "Samba", "Paso doble"],
-    gradient: "from-rose-500/65 to-rose-400/65",
+    gradient: "from-ciel-500/65 to-ciel-400/65",
   },
   {
     id: "latino",
@@ -51,7 +51,7 @@ const courses = [
       { name: "Moyen", time: "21h00 – 22h00" },
     ],
     dances: ["Salsa", "Bachata"],
-    gradient: "from-ciel-500/65 to-ciel-400/65",
+    gradient: "from-ciel-500/65 to-rose-400/65",
   },
   {
     id: "rock",
@@ -63,12 +63,12 @@ const courses = [
     profTag: "Diplômés UBPDM",
     profImage: null,
     initial: "D",
-    avatarGradient: "from-rose-400 to-ciel-400",
+    avatarGradient: "from-ciel-400 to-rose-400",
     day: "Mardi",
     period: "09/09/25 au 09/06/26",
     levels: [{ name: "Tous niveaux", time: "20h30 – 21h30" }],
     dances: ["Rock 4T", "Soul", "Boogie"],
-    gradient: "from-rose-500/65 via-rose-400/65 to-ciel-400/65",
+    gradient: "from-ciel-500/65 via-ciel-400/65 to-rose-400/65",
   },
   {
     id: "solo",
@@ -104,9 +104,9 @@ export default function CoursPage() {
     <>
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
-        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-blush/30 to-ciel-50" />
+        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-frost/30 to-rose-50" />
         <HeroBubbles />
-        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
+        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-ciel-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
           alt="Logo J'y Danse"
@@ -125,8 +125,8 @@ export default function CoursPage() {
         <div className="relative h-full flex items-center mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-rose-300" />
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-rose-400">
+              <div className="w-8 h-px bg-ciel-300" />
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-ciel-500">
                 4 disciplines, tous niveaux
               </span>
             </div>
@@ -150,7 +150,7 @@ export default function CoursPage() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="group flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white/90 backdrop-blur-xl border border-white/60 shadow-lg shadow-foreground/5 text-sm font-semibold text-foreground/60 hover:text-white hover:bg-gradient-to-r hover:from-rose-500 hover:to-ciel-400 hover:border-transparent transition-all duration-300 whitespace-nowrap shrink-0"
+                className="group flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white/90 backdrop-blur-xl border border-white/60 shadow-lg shadow-foreground/5 text-sm font-semibold text-foreground/60 hover:text-white hover:bg-gradient-to-r hover:from-ciel-500 hover:to-rose-400 hover:border-transparent transition-all duration-300 whitespace-nowrap shrink-0"
               >
                 <span className="opacity-50 group-hover:opacity-100 transition-opacity">{item.icon}</span>
                 {item.label}
@@ -168,7 +168,7 @@ export default function CoursPage() {
               <AnimatedSection key={c.id} delay={i * 120}>
                 <div id={c.id} className="scroll-mt-24 h-full">
                   <div
-                    className={`group rounded-[2rem] bg-gradient-to-br ${c.gradient} border border-white/20 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-rose-100/10 h-full`}
+                    className={`group rounded-[2rem] bg-gradient-to-br ${c.gradient} border border-white/20 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-ciel-100/10 h-full`}
                   >
                     <div className="p-6 sm:p-8 flex flex-col items-center text-center h-full">
                       {/* Avatar rond */}
@@ -247,7 +247,7 @@ export default function CoursPage() {
 
       {/* Entraînements & Soirées — diagonal band */}
       <section className="relative py-32 sm:py-36 overflow-hidden">
-        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-rose-500/65 via-rose-400/65 to-ciel-400/65" style={{ clipPath: "polygon(0 0, 100% 6%, 100% 94%, 0 100%)" }} />
+        <div className="absolute -inset-x-1 -inset-y-0 bg-gradient-to-r from-ciel-500/65 via-ciel-400/65 to-rose-400/65" style={{ clipPath: "polygon(0 0, 100% 6%, 100% 94%, 0 100%)" }} />
         <div className="absolute -inset-x-1 -inset-y-0 grain" style={{ clipPath: "polygon(0 0, 100% 6%, 100% 94%, 0 100%)" }} />
 
         <div className="relative z-[4] mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
@@ -301,11 +301,11 @@ export default function CoursPage() {
       {/* CTA */}
       <section className="relative py-28 sm:py-36 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background to-frost/30" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-rose-200/15 rounded-full blur-[160px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-ciel-200/15 rounded-full blur-[160px]" />
 
         <div className="relative text-center mx-auto max-w-3xl px-5 sm:px-8">
           <AnimatedSection>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400 mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-4">
               Prêt à vous lancer ?
             </p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
@@ -318,7 +318,7 @@ export default function CoursPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/inscription"
-                className="btn-shine group inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-rose-500 via-rose-400 to-ciel-400 rounded-full hover:shadow-xl hover:shadow-rose-300/25 transition-all duration-500 hover:-translate-y-0.5"
+                className="btn-shine group inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 hover:-translate-y-0.5"
               >
                 S&apos;inscrire maintenant
                 <ArrowUpRight
@@ -329,7 +329,7 @@ export default function CoursPage() {
               </Link>
               <Link
                 href="/horaires"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-medium text-foreground/50 rounded-full border border-rose-200/50 hover:border-rose-300 hover:bg-blush/50 transition-all duration-500"
+                className="inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-medium text-foreground/50 rounded-full border border-ciel-200/50 hover:border-ciel-300 hover:bg-frost/50 transition-all duration-500"
               >
                 Horaires & tarifs
               </Link>

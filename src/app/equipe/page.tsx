@@ -19,8 +19,8 @@ const professors = [
     day: "Mercredi",
     photo: "/eric-prof.webp",
     initial: "E",
-    gradient: "from-rose-500/65 to-rose-400/65",
-    avatarGradient: "from-rose-300 to-rose-400",
+    gradient: "from-ciel-500/65 to-ciel-400/65",
+    avatarGradient: "from-ciel-300 to-ciel-500",
   },
   {
     name: "Ivan Hidalgo O'Farrill",
@@ -31,7 +31,7 @@ const professors = [
     day: "Jeudi",
     photo: "/ivan.webp",
     initial: "I",
-    gradient: "from-ciel-500/65 to-ciel-400/65",
+    gradient: "from-ciel-500/65 to-rose-400/65",
     avatarGradient: "from-ciel-300 to-ciel-500",
   },
   {
@@ -42,26 +42,26 @@ const professors = [
     specialties: ["Line dance", "Rock 4T", "Soul", "Boogie"],
     day: "Mardi",
     initial: "D",
-    gradient: "from-rose-500/65 via-rose-400/65 to-ciel-400/65",
-    avatarGradient: "from-rose-400 to-ciel-400",
+    gradient: "from-ciel-500/65 via-ciel-400/65 to-rose-400/65",
+    avatarGradient: "from-ciel-400 to-rose-400",
   },
 ];
 
 const comiteMembers = [
   {
-    name: "Boucq Dominique",
+    name: "Anne-Dominique Boucq Campitelli",
     role: "Présidente",
     photo: "/dominique.webp",
-    initial: "D",
+    initial: "A",
   },
   {
-    name: "Cianci Concetta",
+    name: "Concetta Cianci",
     role: "Vice-Présidente & Trésorière",
     photo: "/conceta.webp",
     initial: "C",
   },
   {
-    name: "Renard Marianne",
+    name: "Marianne Renard",
     role: "Secrétaire",
     photo: "/mariane.webp",
     initial: "M",
@@ -79,7 +79,7 @@ const comiteMembers = [
     initial: "L",
   },
   {
-    name: "Moro Thérèse",
+    name: "Thérèse Moro",
     role: "Présidente d'honneur",
     photo: "/therese.webp",
     initial: "T",
@@ -91,9 +91,9 @@ export default function EquipePage() {
     <>
       {/* Hero */}
       <section className="relative h-[380px] sm:h-[420px] overflow-hidden grain">
-        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-rose-50 via-blush/30 to-ciel-50" />
+        <div className="absolute inset-0 gradient-mesh bg-gradient-to-br from-ciel-50 via-frost/30 to-rose-50" />
         <HeroBubbles />
-        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-rose-200/20 rounded-full blur-sm" />
+        <div className="absolute top-1/2 -translate-y-1/3 right-[6%] lg:right-[10%] w-[350px] h-[350px] bg-ciel-200/20 rounded-full blur-sm" />
         <Image
           src="/logojydanse.png"
           alt="Logo J'y Danse"
@@ -112,8 +112,8 @@ export default function EquipePage() {
         <div className="relative h-full flex items-center mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-8 h-px bg-rose-300" />
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-rose-400">
+              <div className="w-8 h-px bg-ciel-300" />
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-ciel-500">
                 Des passionnés à votre service
               </span>
             </div>
@@ -134,9 +134,9 @@ export default function EquipePage() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 mb-4">
-                <div className="w-8 h-px bg-rose-300" />
-                <Heart size={16} className="text-rose-400" />
-                <div className="w-8 h-px bg-rose-300" />
+                <div className="w-8 h-px bg-ciel-300" />
+                <Heart size={16} className="text-ciel-500" />
+                <div className="w-8 h-px bg-ciel-300" />
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
                 Le comité
@@ -153,7 +153,7 @@ export default function EquipePage() {
               <AnimatedSection key={m.name} delay={i * 80}>
                 <div className="group flex flex-col items-center text-center">
                   <div className="relative mb-4">
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden ring-4 ring-rose-100 shadow-lg shadow-rose-100/20 transition-all duration-500 group-hover:ring-rose-300 group-hover:shadow-xl group-hover:shadow-rose-200/30">
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden ring-4 ring-ciel-100 shadow-lg shadow-ciel-100/20 transition-all duration-500 group-hover:ring-ciel-300 group-hover:shadow-xl group-hover:shadow-ciel-200/30">
                       {m.photo ? (
                         <Image
                           src={m.photo}
@@ -163,7 +163,7 @@ export default function EquipePage() {
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-rose-300 to-ciel-300 flex items-center justify-center">
+                        <div className="w-full h-full bg-gradient-to-br from-ciel-300 to-rose-300 flex items-center justify-center">
                           <span className="font-display text-3xl font-extrabold text-white/70">
                             {m.initial}
                           </span>
@@ -174,7 +174,7 @@ export default function EquipePage() {
                   <h3 className="font-display text-sm sm:text-base font-extrabold text-foreground leading-tight">
                     {m.name}
                   </h3>
-                  <p className="text-[0.65rem] sm:text-xs font-medium text-rose-400 mt-1">
+                  <p className="text-[0.65rem] sm:text-xs font-medium text-ciel-500 mt-1">
                     {m.role}
                   </p>
                 </div>
@@ -192,9 +192,9 @@ export default function EquipePage() {
           <AnimatedSection>
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-3 mb-4">
-                <div className="w-8 h-px bg-rose-300" />
-                <Award size={16} className="text-rose-400" />
-                <div className="w-8 h-px bg-rose-300" />
+                <div className="w-8 h-px bg-ciel-300" />
+                <Award size={16} className="text-ciel-500" />
+                <div className="w-8 h-px bg-ciel-300" />
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
                 Nos professeurs
@@ -210,7 +210,7 @@ export default function EquipePage() {
             {professors.map((p, i) => (
               <AnimatedSection key={p.name} delay={i * 120}>
                 <div
-                  className={`group rounded-[2rem] bg-gradient-to-br ${p.gradient} border border-white/20 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-rose-100/10 h-full`}
+                  className={`group rounded-[2rem] bg-gradient-to-br ${p.gradient} border border-white/20 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-ciel-100/10 h-full`}
                 >
                   <div className="p-6 sm:p-8 flex flex-col items-center text-center h-full">
                     {/* Avatar rond */}

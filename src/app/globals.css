@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #f9f4f6;
-  --color-foreground: #1a0a12;
+  --color-background: #f4f7fa;
+  --color-foreground: #0f1520;
 
   /* Refined pastel palette — rose + ciel (deepened) */
   --color-rose-50: #fcedf4;
@@ -25,14 +25,26 @@
   --color-ciel-700: #1f4f8f;
   --color-ciel-800: #1e4477;
 
-  --color-blush: #f0d4e2;
-  --color-blush-deep: #e6bcd0;
+  --color-blush: #d4e0f0;
+  --color-blush-deep: #bcd0e6;
   --color-frost: #d8e6f5;
   --color-frost-deep: #c2d6ee;
   --color-cream: #f3ece4;
 
   --font-sans: var(--font-outfit);
   --font-display: var(--font-outfit);
+
+  /* Bump small text sizes only (titles untouched) */
+  --font-size-xs: 0.8125rem;      /* 12px → 13px */
+  --font-size-xs--line-height: 1.125rem;
+  --font-size-sm: 0.9375rem;      /* 14px → 15px */
+  --font-size-sm--line-height: 1.375rem;
+  --font-size-base: 1.0625rem;    /* 16px → 17px */
+  --font-size-base--line-height: 1.625rem;
+  --font-size-lg: 1.1875rem;      /* 18px → 19px */
+  --font-size-lg--line-height: 1.75rem;
+  --font-size-xl: 1.3125rem;      /* 20px → 21px */
+  --font-size-xl--line-height: 1.875rem;
 }
 
 html {
@@ -153,17 +165,17 @@ body {
 
 /* === GLASS CARDS === */
 .glass {
-  background: rgba(245, 228, 237, 0.5);
+  background: rgba(216, 230, 245, 0.5);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(240, 212, 226, 0.5);
+  border: 1px solid rgba(194, 214, 238, 0.5);
 }
 
 .glass-strong {
-  background: rgba(245, 228, 237, 0.65);
+  background: rgba(216, 230, 245, 0.65);
   backdrop-filter: blur(32px) saturate(1.6);
   -webkit-backdrop-filter: blur(32px) saturate(1.6);
-  border: 1px solid rgba(240, 212, 226, 0.65);
+  border: 1px solid rgba(194, 214, 238, 0.65);
 }
 
 /* === DIAGONAL DIVIDERS === */
@@ -286,7 +298,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-rose-50);
+  background: var(--color-ciel-50);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -296,8 +308,8 @@ body {
 
 /* === SELECTION === */
 ::selection {
-  background: var(--color-rose-200);
-  color: var(--color-rose-800);
+  background: var(--color-ciel-200);
+  color: var(--color-ciel-800);
 }
 
 /* === CHATBOT BREATHE === */
@@ -320,11 +332,11 @@ body {
 }
 
 .chatbot-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--color-rose-200);
+  background: var(--color-ciel-200);
   border-radius: 999px;
 }
 
 .chatbot-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-rose-200) transparent;
+  scrollbar-color: var(--color-ciel-200) transparent;
 }

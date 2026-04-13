@@ -31,9 +31,9 @@ export async function POST(req: Request) {
       );
     }
 
-    // Accusé de réception (fire-and-forget)
+    // Accusé de réception
     if (ackWebhookUrl) {
-      fetch(ackWebhookUrl, {
+      await fetch(ackWebhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: payload,

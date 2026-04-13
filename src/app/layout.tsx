@@ -14,7 +14,7 @@ const outfit = Outfit({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jydanse.com"),
+  metadataBase: new URL("https://www.jydanse.com"),
   title: {
     default: "J'y Danse — Club de danse sportive à Gilly",
     template: "%s | J'y Danse",

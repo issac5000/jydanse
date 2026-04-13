@@ -9,17 +9,6 @@ export const metadata: Metadata = {
   description: "Photos et souvenirs du club J'y Danse à Gilly.",
 };
 
-const placeholders = [
-  { span: "col-span-2 row-span-2", aspect: "aspect-square" },
-  { span: "col-span-1 row-span-1", aspect: "aspect-square" },
-  { span: "col-span-1 row-span-1", aspect: "aspect-square" },
-  { span: "col-span-1 row-span-1", aspect: "aspect-square" },
-  { span: "col-span-1 row-span-2", aspect: "aspect-[3/4]" },
-  { span: "col-span-1 row-span-1", aspect: "aspect-square" },
-  { span: "col-span-2 row-span-1", aspect: "aspect-[2/1]" },
-  { span: "col-span-1 row-span-1", aspect: "aspect-square" },
-];
-
 export default function GaleriePage() {
   return (
     <>
@@ -61,28 +50,16 @@ export default function GaleriePage() {
         </div>
       </section>
 
-      {/* Gallery grid */}
+      {/* Annonce */}
       <section className="relative py-20 sm:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[200px] gap-4">
-            {placeholders.map((p, i) => (
-              <AnimatedSection key={i} delay={i * 60} className={p.span}>
-                <div
-                  className={`${p.aspect} w-full h-full rounded-2xl bg-gradient-to-br from-ciel-500/65 via-ciel-400/65 to-rose-400/65 border border-white/20 backdrop-blur-sm flex items-center justify-center overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-ciel-100/15 hover:-translate-y-0.5 group`}
-                >
-                  <div className="text-center transition-transform duration-500 group-hover:scale-110">
-                    <Camera size={28} className="text-white/40 mx-auto mb-2" />
-                    <p className="text-xs text-white/50 font-medium">Bientôt</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <AnimatedSection delay={500}>
-            <p className="text-center text-foreground/30 text-sm mt-12 font-light">
-              Les photos seront bientôt disponibles.
-            </p>
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-10">
+          <AnimatedSection>
+            <div className="text-center">
+              <Camera size={48} className="text-ciel-300 mx-auto mb-6" />
+              <p className="font-display text-2xl sm:text-3xl font-bold text-foreground/70">
+                Un peu de patience, les photos arrivent bientôt&nbsp;!
+              </p>
+            </div>
           </AnimatedSection>
         </div>
       </section>

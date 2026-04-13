@@ -14,6 +14,7 @@ const outfit = Outfit({
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jydanse.be"),
   title: {
     default: "J'y Danse — Club de danse sportive à Gilly",
     template: "%s | J'y Danse",
@@ -24,6 +25,20 @@ export const metadata: Metadata = {
     "danse", "cours de danse", "Gilly", "Charleroi", "danse de salon",
     "salsa", "bachata", "line dance", "rock", "swing", "club de danse",
   ],
+  openGraph: {
+    type: "website",
+    locale: "fr_BE",
+    siteName: "J'y Danse",
+    title: "J'y Danse — Club de danse sportive à Gilly",
+    description:
+      "Club de danse sportive à Gilly (Charleroi). Cours de danses de salon, latino, line dance, rock & swing. Ambiance conviviale depuis 1992.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "J'y Danse — Club de danse sportive à Gilly",
+    description:
+      "Club de danse sportive à Gilly (Charleroi). Cours de danses de salon, latino, line dance, rock & swing.",
+  },
 };
 
 export default function RootLayout({

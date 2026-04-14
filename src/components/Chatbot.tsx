@@ -90,6 +90,9 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipLeaving, setTooltipLeaving] = useState(false);
+  const [tooltipDismissed, setTooltipDismissed] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -106,6 +109,32 @@ export default function Chatbot() {
   useEffect(() => {
     if (open && inputRef.current) {
       inputRef.current.focus();
+    }
+  }, [open]);
+
+  // Show tooltip after 5s, hide after 5s more
+  useEffect(() => {
+    const showTimer = setTimeout(() => {
+      if (!tooltipDismissed) setShowTooltip(true);
+    }, 5000);
+    const leaveTimer = setTimeout(() => {
+      if (!tooltipDismissed) setTooltipLeaving(true);
+    }, 10000);
+    const hideTimer = setTimeout(() => {
+      if (!tooltipDismissed) {
+        setShowTooltip(false);
+        setTooltipLeaving(false);
+        setTooltipDismissed(true);
+      }
+    }, 10400);
+    return () => { clearTimeout(showTimer); clearTimeout(leaveTimer); clearTimeout(hideTimer); };
+  }, [tooltipDismissed]);
+
+  // Hide tooltip when chat opens
+  useEffect(() => {
+    if (open) {
+      setShowTooltip(false);
+      setTooltipDismissed(true);
     }
   }, [open]);
 
@@ -174,15 +203,35 @@ export default function Chatbot() {
   return (
     <>
       {/* ── Floating sphere ── */}
-      <button
-        onClick={() => setOpen((o) => !o)}
-        aria-label={open ? "Fermer l'assistant" : "Ouvrir l'assistant"}
-        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-ciel-400 to-rose-400 text-white shadow-lg shadow-ciel-300/30 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-ciel-300/40 hover:scale-105 cursor-pointer ${
-          open ? "" : "animate-breathe"
-        }`}
-      >
-        {open ? <X size={22} /> : <MessageCircle size={22} />}
-      </button>
+      <div className="fixed bottom-6 right-6 z-50">
+        {/* Tooltip */}
+        {showTooltip && !open && (
+          <button
+            onClick={() => { setShowTooltip(false); setTooltipDismissed(true); setOpen(true); }}
+            className={`absolute bottom-1 right-16 whitespace-nowrap bg-white rounded-2xl shadow-lg shadow-ciel-200/30 border border-ciel-200/40 px-4 py-2.5 text-sm font-medium text-foreground/70 cursor-pointer hover:bg-frost/50 transition-colors ${tooltipLeaving ? "animate-slide-out-right" : "animate-fade-in-up"}`}
+          >
+            <span>Une question ? Je suis là pour vous !</span>
+            <div className="absolute top-1/2 -translate-y-1/2 -right-1.5 w-3 h-3 bg-white border-r border-b border-ciel-200/40 -rotate-45" />
+          </button>
+        )}
+        <button
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? "Fermer l'assistant" : "Ouvrir l'assistant"}
+          className={`w-14 h-14 rounded-full bg-gradient-to-br from-ciel-400 to-rose-400 text-white shadow-lg shadow-ciel-300/30 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-ciel-300/40 hover:scale-105 cursor-pointer ${
+            open ? "" : "animate-breathe"
+          }`}
+        >
+          {open ? <X size={22} /> : <MessageCircle size={22} />}
+        </button>
+      </div>
+
+      {/* ── Mobile backdrop blur ── */}
+      {open && (
+        <div
+          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm sm:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
       {/* ── Chat modal ── */}
       {open && (
@@ -193,15 +242,22 @@ export default function Chatbot() {
               <MessageCircle size={18} className="text-white" />
             </div>
             <div className="flex-1">
-              <p className="text-white font-semibold text-sm leading-tight">
-                Assistant virtuel
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="text-white font-semibold text-sm leading-tight">
+                  Assistant virtuel
+                </p>
+                <span className="w-1.5 h-1.5 rounded-full bg-green-300 animate-pulse" />
+                <span className="text-white/60 text-xs">En ligne</span>
+              </div>
               <p className="text-white/70 text-xs">J&apos;y Danse</p>
             </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-green-300 animate-pulse" />
-              <span className="text-white/60 text-xs">En ligne</span>
-            </div>
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Fermer le chat"
+              className="w-7 h-7 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors cursor-pointer"
+            >
+              <X size={14} className="text-white" />
+            </button>
           </div>
 
           {/* Messages */}
@@ -211,22 +267,8 @@ export default function Chatbot() {
           >
             {/* Welcome */}
             {messages.length === 0 && (
-              <div className="space-y-3">
-                <div className="bg-frost/50 rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground/70 leading-relaxed max-w-[85%]">
-                  Bonjour ! Je suis l&apos;assistant du club <strong>J&apos;y Danse</strong>. Comment puis-je t&apos;aider ?
-                </div>
-                <div className="flex flex-col gap-2">
-                  {suggestions.map((s) => (
-                    <button
-                      key={s.text}
-                      onClick={() => sendMessage(s.text)}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ciel-100/70 border border-ciel-200/50 text-sm text-foreground/60 hover:bg-ciel-200/60 hover:border-ciel-300 transition-all duration-200 text-left cursor-pointer"
-                    >
-                      <span className="text-ciel-500 shrink-0">{s.icon}</span>
-                      {s.text}
-                    </button>
-                  ))}
-                </div>
+              <div className="bg-frost/50 rounded-2xl rounded-tl-md px-4 py-3 text-sm text-foreground/70 leading-relaxed max-w-[85%]">
+                Bonjour ! Je suis l&apos;assistant du club <strong>J&apos;y Danse</strong>. Comment puis-je t&apos;aider ?
               </div>
             )}
 
@@ -260,6 +302,22 @@ export default function Chatbot() {
               </div>
             ))}
           </div>
+
+          {/* Suggestions */}
+          {messages.length === 0 && (
+            <div className="shrink-0 px-4 pt-2 flex flex-col gap-1.5">
+              {suggestions.map((s) => (
+                <button
+                  key={s.text}
+                  onClick={() => sendMessage(s.text)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-ciel-100/70 border border-ciel-200/50 text-sm text-foreground/60 hover:bg-ciel-200/60 hover:border-ciel-300 transition-all duration-200 text-left cursor-pointer"
+                >
+                  <span className="text-ciel-500 shrink-0">{s.icon}</span>
+                  {s.text}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Input */}
           <form

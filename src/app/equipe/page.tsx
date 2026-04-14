@@ -27,7 +27,7 @@ const professors = [
     role: "Danses latino",
     icon: <Music size={22} />,
     desc: "Champion de cha-cha à Cuba. Ivan assure les cours de latino — salsa, bachata — et latino solo le jeudi soir.",
-    specialties: ["Salsa", "Bachata", "Reggae", "Merengue", "Cumbia"],
+    specialties: ["Salsa", "Bachata", "Kizomba", "Reggae", "Merengue", "Cumbia"],
     day: "Jeudi",
     photo: "/ivan.webp",
     initial: "I",
@@ -35,7 +35,7 @@ const professors = [
     avatarGradient: "from-ciel-300 to-ciel-500",
   },
   {
-    name: "Didier & Cowine Paschal",
+    name: "Didier & Carine Paschal",
     role: "Line dance & Rock",
     icon: <Zap size={22} />,
     desc: "Diplômés de l'UBPDM (Union Belge des Professeurs de Danse et de Maintien). Ils assurent les cours de danses en ligne, rock et boogie le mardi soir.",
@@ -50,18 +50,21 @@ const professors = [
 const comiteMembers = [
   {
     name: "Anne-Dominique Boucq Campitelli",
+    tag: "Administratrice",
     role: "Présidente",
     photo: "/dominique.webp",
     initial: "A",
   },
   {
     name: "Concetta Cianci",
+    tag: "Administratrice",
     role: "Vice-Présidente & Trésorière",
     photo: "/conceta.webp",
     initial: "C",
   },
   {
     name: "Marianne Renard",
+    tag: "Administratrice",
     role: "Secrétaire",
     photo: "/mariane.webp",
     initial: "M",
@@ -174,6 +177,11 @@ export default function EquipePage() {
                   <h3 className="font-display text-sm sm:text-base font-extrabold text-foreground leading-tight">
                     {m.name}
                   </h3>
+                  {"tag" in m && m.tag && (
+                    <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-ciel-100/60 text-[0.65rem] font-semibold text-ciel-600 uppercase tracking-wider">
+                      {m.tag as string}
+                    </span>
+                  )}
                   <p className="text-xs font-medium text-ciel-500 mt-1">
                     {m.role}
                   </p>

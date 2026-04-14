@@ -5,10 +5,12 @@ import { useEffect, useRef, useState } from "react";
 interface AnimatedCounterProps {
   value: number;
   suffix?: string;
+  prefix?: string;
+  decimals?: number;
   duration?: number;
 }
 
-export default function AnimatedCounter({ value, suffix = "", duration = 2000 }: AnimatedCounterProps) {
+export default function AnimatedCounter({ value, suffix = "", prefix = "", decimals = 0, duration = 2000 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
@@ -33,8 +35,10 @@ export default function AnimatedCounter({ value, suffix = "", duration = 2000 }:
   useEffect(() => {
     if (!started) return;
 
-    const start = value > 1000 ? value - 30 : 0;
-    const range = value - start;
+    const scale = Math.pow(10, decimals);
+    const targetInt = Math.round(value * scale);
+    const start = targetInt > 1000 ? targetInt - 30 : 0;
+    const range = targetInt - start;
     const startTime = performance.now();
 
     function tick(now: number) {
@@ -49,11 +53,13 @@ export default function AnimatedCounter({ value, suffix = "", duration = 2000 }:
     }
 
     requestAnimationFrame(tick);
-  }, [started, value, duration]);
+  }, [started, value, duration, decimals]);
+
+  const display = decimals > 0 ? (count / Math.pow(10, decimals)).toFixed(decimals) : count;
 
   return (
     <span ref={ref}>
-      {count}{suffix}
+      {prefix}{display}{suffix}
     </span>
   );
 }

@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Users, Award, Heart, Sparkles, Quote } from "lucide-react";
+
+function FacebookIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  );
+}
 import AnimatedSection from "@/components/AnimatedSection";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Marquee from "@/components/Marquee";
@@ -8,7 +16,7 @@ import Marquee from "@/components/Marquee";
 const danceStyles = [
   "Valse lente", "Tango", "Quick-step", "Valse viennoise", "Slow-Fox",
   "Cha-cha", "Rumba", "Jive", "Samba", "Paso doble",
-  "Salsa", "Bachata", "Rock", "Boogie", "Line Dance", "Merengue", "Cumbia",
+  "Salsa", "Bachata", "Kizomba", "Rock", "Boogie", "Line Dance", "Merengue", "Cumbia",
 ];
 
 const courses = [
@@ -28,7 +36,7 @@ const courses = [
     subtitle: "Salsa & Bachata",
     prof: "Ivan Hidalgo O'Farrill",
     day: "Jeudi",
-    dances: ["Salsa", "Bachata", "Reggae", "Merengue", "Cumbia"],
+    dances: ["Salsa", "Bachata", "Kizomba", "Reggae", "Merengue", "Cumbia"],
     gradient: "from-ciel-500/65 to-rose-400/65",
     accent: "bg-rose-400",
   },
@@ -36,7 +44,7 @@ const courses = [
     number: "03",
     title: "Rock & Boogie",
     subtitle: "Énergie & Style",
-    prof: "Didier & Cowine Paschal",
+    prof: "Didier & Carine Paschal",
     day: "Mardi",
     dances: ["Rock 4T", "Soul", "Boogie"],
     gradient: "from-ciel-500/65 via-ciel-400/65 to-rose-400/65",
@@ -45,10 +53,10 @@ const courses = [
 ];
 
 const stats = [
-  { num: 1981, suffix: "", label: "Année de fondation", icon: <Clock size={22} /> },
-  { num: 3, suffix: "", label: "Soirées par semaine", icon: <Sparkles size={22} /> },
-  { num: 28, suffix: "", label: "Leçons par saison", icon: <Award size={22} /> },
-  { num: 180, suffix: "€", label: "Par an / personne", icon: <Heart size={22} /> },
+  { num: 1981, suffix: "", label: "Année de fondation", icon: <Clock size={22} />, prefix: "" },
+  { num: 3, suffix: "", label: "Soirées par semaine", icon: <Sparkles size={22} />, prefix: "" },
+  { num: 28, suffix: "", label: "Leçons par saison", icon: <Award size={22} />, prefix: "" },
+  { num: 1.5, suffix: "K", label: "sur Facebook", icon: <FacebookIcon size={22} />, prefix: "+" },
 ];
 
 export default function Home() {
@@ -62,7 +70,7 @@ export default function Home() {
           alt="Danseurs du club J'y Danse"
           fill
           priority
-          className="object-cover"
+          className="object-cover" style={{ objectPosition: "center 80%" }}
         />
         {/* Overlay for readability */}
         <div className="absolute inset-0 bg-background/75" />
@@ -320,7 +328,7 @@ export default function Home() {
                     {s.icon}
                   </div>
                   <div className="font-display text-4xl sm:text-5xl font-extrabold text-white mb-2">
-                    <AnimatedCounter value={s.num} suffix={s.suffix} />
+                    <AnimatedCounter value={s.num} suffix={s.suffix} prefix={s.prefix} decimals={s.num % 1 !== 0 ? 1 : 0} />
                   </div>
                   <p className="text-sm text-white/70 font-medium uppercase tracking-wider">
                     {s.label}
@@ -329,6 +337,19 @@ export default function Home() {
               </AnimatedSection>
             ))}
           </div>
+          <AnimatedSection delay={500}>
+            <div className="flex justify-center mt-10">
+              <a
+                href="https://www.facebook.com/asbljydanse/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white/20 border border-white/30 text-white font-semibold text-sm hover:bg-white/30 hover:border-white/40 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                <FacebookIcon size={18} />
+                Nous rejoindre sur Facebook
+              </a>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

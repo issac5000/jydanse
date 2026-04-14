@@ -16,8 +16,8 @@ const schedule = [
     accent: "from-ciel-400 to-ciel-500",
     dotColor: "bg-ciel-400",
     courses: [
-      { time: "19h00 – 20h30", title: "Danses en ligne", prof: "Didier & Cowine Paschal", level: "Tous niveaux" },
-      { time: "20h30 – 21h30", title: "Rock 4T, Soul & Boogie", prof: "Didier & Cowine Paschal", level: "Tous niveaux" },
+      { time: "19h00 – 20h30", title: "Danses en ligne", prof: "Didier & Carine Paschal", level: "Tous niveaux" },
+      { time: "20h30 – 21h30", title: "Rock 4T, Soul & Boogie", prof: "Didier & Carine Paschal", level: "Tous niveaux" },
     ],
   },
   {

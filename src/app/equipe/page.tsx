@@ -41,6 +41,8 @@ const professors = [
     desc: "Diplômés de l'UBPDM (Union Belge des Professeurs de Danse et de Maintien). Ils assurent les cours de danses en ligne, rock et boogie le mardi soir.",
     specialties: ["Line dance", "Rock 4T", "Soul", "Boogie"],
     day: "Mardi",
+    photo: "/didier.webp",
+    photo2: "/carine.webp",
     initial: "D",
     gradient: "from-ciel-500/65 via-ciel-400/65 to-rose-400/65",
     avatarGradient: "from-ciel-400 to-rose-400",
@@ -223,7 +225,28 @@ export default function EquipePage() {
                   <div className="p-6 sm:p-8 flex flex-col items-center text-center h-full">
                     {/* Avatar rond */}
                     <div className="mb-5">
-                      {p.photo ? (
+                      {"photo2" in p && p.photo2 ? (
+                        <div className="flex -space-x-4">
+                          <div className="w-22 h-22 rounded-full overflow-hidden ring-4 ring-white/20 shadow-lg transition-all duration-500 group-hover:ring-white/40 group-hover:shadow-xl z-10">
+                            <Image
+                              src={p.photo}
+                              alt="Didier"
+                              width={88}
+                              height={88}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="w-22 h-22 rounded-full overflow-hidden ring-4 ring-white/20 shadow-lg transition-all duration-500 group-hover:ring-white/40 group-hover:shadow-xl">
+                            <Image
+                              src={p.photo2 as string}
+                              alt="Carine"
+                              width={88}
+                              height={88}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </div>
+                      ) : p.photo ? (
                         <div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-white/20 shadow-lg transition-all duration-500 group-hover:ring-white/40 group-hover:shadow-xl">
                           <Image
                             src={p.photo}

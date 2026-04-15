@@ -53,8 +53,10 @@ const events = [
   { date: "15 oct. 2026", title: "Entraînement Halloween", desc: "19h30 — Déguisement souhaité" },
   { date: "3–4 nov. 2026", title: "Entraînements dirigés", desc: "Didier (3/11) & Eric (4/11)" },
   { date: "15 & 17 déc. 2026", title: "Entraînements de Noël", desc: "19h30 — Ambiance festive" },
-  { date: "3 fév. 2027", title: "Entraînement dirigé Eric", desc: "Danses de salon" },
+  { date: "26–28 jan. 2027", title: "Entraînements dirigés", desc: "Les 3 profs" },
   { date: "18 fév. 2027", title: "Entraînement Carnaval", desc: "19h30 — Déguisement souhaité" },
+  { date: "10 mars 2027", title: "Entraînement dirigé Eric", desc: "Danses de salon" },
+  { date: "15–17 juin 2027", title: "Auberge Espagnole", desc: "Soirée festive" },
 ];
 
 // === Calendar helpers ===
@@ -81,7 +83,7 @@ const vacationRanges: [number, number][] = [
 const holidaySet = new Set([
   toN(2026, 11, 11), // 11 novembre
   toN(2027, 3, 29),  // Pâques
-  toN(2027, 5, 7),   // Ascension
+  toN(2027, 6, 6),   // Ascension
   toN(2027, 5, 17),  // Pentecôte
 ]);
 
@@ -90,8 +92,10 @@ const eventSet = new Set([
   toN(2026, 10, 15),
   toN(2026, 11, 3), toN(2026, 11, 4),
   toN(2026, 12, 15), toN(2026, 12, 17),
-  toN(2027, 2, 3),
+  toN(2027, 1, 26), toN(2027, 1, 27), toN(2027, 1, 28),
   toN(2027, 2, 18),
+  toN(2027, 3, 10),
+  toN(2027, 6, 15), toN(2027, 6, 16), toN(2027, 6, 17),
 ]);
 
 function getDayInfo(year: number, month: number, day: number) {
@@ -105,7 +109,7 @@ function getDayInfo(year: number, month: number, day: number) {
   let course: string | null = null;
   if (jsDay === 2 && n >= toN(2026, 9, 1) && n <= toN(2027, 6, 15)) course = "mardi";
   else if (jsDay === 3 && n >= toN(2026, 9, 2) && n <= toN(2027, 6, 16)) course = "mercredi";
-  else if (jsDay === 4 && n >= toN(2026, 9, 3) && n <= toN(2027, 6, 24)) course = "jeudi";
+  else if (jsDay === 4 && n >= toN(2026, 9, 3) && n <= toN(2027, 6, 17)) course = "jeudi";
 
   return { course, vacation: false, event: isEvt };
 }
@@ -227,7 +231,7 @@ export default function HorairesPage() {
               Saison complète
             </h2>
             <p className="text-foreground/40 text-sm font-light max-w-xl mb-10">
-              Du 1er septembre 2026 au 24 juin 2027 — hors congés scolaires.
+              Du 1er septembre 2026 au 17 juin 2027 — hors congés scolaires.
             </p>
           </AnimatedSection>
 
@@ -347,11 +351,11 @@ export default function HorairesPage() {
                 <ul className="space-y-3 text-sm text-foreground/50">
                   <li>11 novembre 2026</li>
                   <li>29 mars 2027 <span className="text-foreground/30">(Pâques)</span></li>
-                  <li>7 mai 2027 <span className="text-foreground/30">(Ascension)</span></li>
+                  <li>6 juin 2027 <span className="text-foreground/30">(Ascension)</span></li>
                   <li>17 mai 2027 <span className="text-foreground/30">(Pentecôte)</span></li>
                 </ul>
                 <p className="mt-4 pt-4 border-t border-foreground/8 text-sm text-foreground/40">
-                  Fermeture estivale : 25 juin → 1er sept. 2027
+                  Fermeture estivale : 18 juin → 1er sept. 2027
                 </p>
               </div>
             </div>

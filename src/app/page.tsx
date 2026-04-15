@@ -54,7 +54,7 @@ const courses = [
 
 const stats = [
   { num: 1981, suffix: "", label: "Année de fondation", icon: <Clock size={22} />, prefix: "" },
-  { num: 3, suffix: "", label: "Soirées par semaine", icon: <Sparkles size={22} />, prefix: "" },
+  { num: 3, suffix: "", label: "Cours par semaine", icon: <Sparkles size={22} />, prefix: "" },
   { num: 28, suffix: "", label: "Leçons par saison", icon: <Award size={22} />, prefix: "" },
   { num: 1.5, suffix: "K", label: "sur Facebook", icon: <FacebookIcon size={22} />, prefix: "+" },
 ];

@@ -79,13 +79,18 @@ const courses = [
     prof: "Didier & Carine / Ivan",
     profTag: "",
     profImage: null,
+    profPhotos: [
+      { src: "/didier.webp", alt: "Didier Paschal" },
+      { src: "/carine.webp", alt: "Carine Paschal" },
+      { src: "/ivan.webp", alt: "Ivan Hidalgo O'Farrill" },
+    ],
     initial: "D",
     avatarGradient: "from-ciel-300 to-rose-400",
     day: "Mardi & Jeudi",
     period: "Sept. 2025 – Juin 2026",
     levels: [
-      { name: "Line dance", time: "Mar. 19h00 – 20h30" },
-      { name: "Latino solo", time: "Jeu. 19h00 – 20h00" },
+      { name: "Line dance", time: "Mar. 19h00 – 20h30", prof: "Didier & Carine" },
+      { name: "Latino solo", time: "Jeu. 19h00 – 20h00", prof: "Ivan" },
     ],
     dances: ["Disco", "Salsa solo", "Bachata solo", "Reggae", "Merengue", "Cumbia"],
     gradient: "from-ciel-400/65 to-rose-400/65",
@@ -135,7 +140,7 @@ export default function CoursPage() {
             </h1>
             <p className="mt-6 text-lg text-foreground/40 leading-relaxed max-w-xl font-light">
               On y apprend des pas, des figures et le sens du rythme.
-              Cavalier et dame découvrent chaque pas séparément avant
+              Cavalier et cavalière découvrent chaque pas séparément avant
               de l&apos;exécuter en couple, guidés par le professeur.
             </p>
           </div>
@@ -173,7 +178,21 @@ export default function CoursPage() {
                     <div className="p-6 sm:p-8 flex flex-col items-center text-center h-full">
                       {/* Avatar rond */}
                       <div className="mb-5">
-                        {c.profImage ? (
+                        {c.profPhotos ? (
+                          <div className="flex items-center justify-center -space-x-4">
+                            {c.profPhotos.map((p: { src: string; alt: string }) => (
+                              <div key={p.src} className="w-20 h-20 rounded-full overflow-hidden ring-4 ring-white/20 shadow-lg transition-all duration-500 group-hover:ring-white/40 group-hover:shadow-xl">
+                                <Image
+                                  src={p.src}
+                                  alt={p.alt}
+                                  width={80}
+                                  height={80}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        ) : c.profImage ? (
                           <div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-white/20 shadow-lg transition-all duration-500 group-hover:ring-white/40 group-hover:shadow-xl">
                             <Image
                               src={c.profImage}
@@ -229,7 +248,12 @@ export default function CoursPage() {
                               key={l.name}
                               className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-white/15 border border-white/10"
                             >
-                              <span className="text-sm font-medium text-white/80">{l.name}</span>
+                              <div>
+                                <span className="text-sm font-medium text-white/80">{l.name}</span>
+                                {"prof" in l && l.prof && (
+                                  <span className="block text-[11px] text-white/50">{l.prof}</span>
+                                )}
+                              </div>
                               <span className="text-xs font-semibold text-white tabular-nums">{l.time}</span>
                             </div>
                           ))}

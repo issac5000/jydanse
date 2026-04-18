@@ -62,6 +62,10 @@ const courses = [
     prof: "Didier & Carine Paschal",
     profTag: "Diplômés UBPDM",
     profImage: null,
+    profPhotos: [
+      { src: "/didier.webp", alt: "Didier Paschal" },
+      { src: "/carine.webp", alt: "Carine Paschal" },
+    ],
     initial: "D",
     avatarGradient: "from-ciel-400 to-rose-400",
     day: "Mardi",

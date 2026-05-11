@@ -361,7 +361,7 @@ export default function Home() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
-                Saison 2025–2026
+                Saison 2026–2027
               </p>
               <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground">
                 Événements à venir

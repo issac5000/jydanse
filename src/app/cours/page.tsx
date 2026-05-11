@@ -91,7 +91,7 @@ const courses = [
     initial: "D",
     avatarGradient: "from-ciel-300 to-rose-400",
     day: "Mardi & Jeudi",
-    period: "Sept. 2025 – Juin 2026",
+    period: "Sept. 2026 – Juin 2027",
     levels: [
       { name: "Line dance", time: "Mar. 19h00 – 20h30", prof: "Didier & Carine" },
       { name: "Latino solo", time: "Jeu. 19h00 – 20h00", prof: "Ivan" },

@@ -39,7 +39,7 @@ export default function InscriptionPage() {
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-8 h-px bg-ciel-300" />
               <span className="text-xs font-semibold uppercase tracking-[0.35em] text-ciel-500">
-                Saison 2025–2026
+                Saison 2026–2027
               </span>
             </div>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground leading-[0.95]">

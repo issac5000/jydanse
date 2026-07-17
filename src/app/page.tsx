@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Clock, Users, Award, Heart, Sparkles, Quote } from "lucide-react";
+import { ArrowUpRight, Clock, Users, Award, Heart, Sparkles, Quote, Calendar, MapPin } from "lucide-react";
 
 function FacebookIcon({ size = 18 }: { size?: number }) {
   return (
@@ -12,6 +12,7 @@ function FacebookIcon({ size = 18 }: { size?: number }) {
 import AnimatedSection from "@/components/AnimatedSection";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import Marquee from "@/components/Marquee";
+import FigureDeDanse from "@/components/FigureDeDanse";
 
 const danceStyles = [
   "Valse lente", "Tango", "Quick-step", "Valse viennoise", "Slow-Fox",
@@ -19,36 +20,40 @@ const danceStyles = [
   "Salsa", "Bachata", "Kizomba", "Rock", "Boogie", "Line Dance", "Merengue", "Cumbia",
 ];
 
+/* Les trois soirs, dans l'ordre où la semaine se danse */
 const courses = [
   {
-    number: "01",
+    abbr: "MAR",
+    title: "Rock & Boogie",
+    subtitle: "Énergie & Style",
+    prof: "Didier & Carine Paschal",
+    photos: ["/didier.webp", "/carine.webp"],
+    day: "Mardi",
+    dances: ["Rock 4T", "Soul", "Boogie"],
+    gradient: "from-ciel-500/65 via-ciel-400/65 to-rose-400/65",
+    accent: "bg-gradient-to-r from-ciel-400 to-rose-400",
+  },
+  {
+    abbr: "MER",
     title: "Danses sportives / de salon",
     subtitle: "Standards & Latines",
     prof: "Eric Dehant",
+    photos: ["/eric-prof.webp"],
     day: "Mercredi",
     dances: ["Valse lente", "Tango", "Quick-step", "Valse viennoise", "Slow-Fox", "Cha-cha", "Rumba", "Jive", "Samba", "Paso doble"],
     gradient: "from-ciel-500/65 to-ciel-400/65",
     accent: "bg-ciel-400",
   },
   {
-    number: "02",
+    abbr: "JEU",
     title: "Latino",
     subtitle: "Salsa & Bachata",
     prof: "Ivan Hidalgo O'Farrill",
+    photos: ["/ivan.webp"],
     day: "Jeudi",
     dances: ["Salsa", "Bachata", "Kizomba", "Reggae", "Merengue", "Cumbia"],
     gradient: "from-ciel-500/65 to-rose-400/65",
     accent: "bg-rose-400",
-  },
-  {
-    number: "03",
-    title: "Rock & Boogie",
-    subtitle: "Énergie & Style",
-    prof: "Didier & Carine Paschal",
-    day: "Mardi",
-    dances: ["Rock 4T", "Soul", "Boogie"],
-    gradient: "from-ciel-500/65 via-ciel-400/65 to-rose-400/65",
-    accent: "bg-gradient-to-r from-ciel-400 to-rose-400",
   },
 ];
 
@@ -72,9 +77,9 @@ export default function Home() {
           priority
           className="object-cover" style={{ objectPosition: "center 80%" }}
         />
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-background/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
+        {/* Overlay for readability — léger pour laisser vivre la salle */}
+        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/95" />
 
         {/* Decorative lines */}
         <div className="absolute top-32 right-16 w-px h-40 bg-gradient-to-b from-transparent via-ciel-200/40 to-transparent hidden lg:block" />
@@ -83,12 +88,10 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 w-full py-20">
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
             {/* Eyebrow */}
-            <div className="reveal-up inline-flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-ciel-300" />
+            <div className="reveal-up mb-8">
               <span className="text-xs font-semibold uppercase tracking-[0.35em] text-ciel-500">
                 Club de danse sportive — Gilly
               </span>
-              <div className="w-8 h-px bg-ciel-300" />
             </div>
 
             {/* Main headline */}
@@ -103,8 +106,29 @@ export default function Home() {
               </span>
             </h1>
 
+            {/* Le paraphe du couple — lui en bleu, elle en rose */}
+            <svg
+              viewBox="0 0 260 40"
+              fill="none"
+              aria-hidden="true"
+              className="trait-couple reveal-up delay-200 w-52 sm:w-64 mt-5"
+            >
+              <path
+                d="M8 20 C 70 4 130 36 204 22 C 224 18 240 16 252 18"
+                stroke="var(--color-ciel-400)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M8 27 C 90 42 160 2 252 14"
+                stroke="var(--color-rose-400)"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            </svg>
+
             {/* Subtext */}
-            <p className="reveal-up delay-300 mt-8 text-base sm:text-lg text-foreground/45 leading-relaxed max-w-xl font-light">
+            <p className="reveal-up delay-300 mt-8 text-base sm:text-lg text-foreground/65 leading-relaxed max-w-xl font-light [text-shadow:0_1px_12px_rgba(244,247,250,0.9)]">
               Bienvenue à tous — débutants ou confirmés.
               Découvrez la danse dans une ambiance conviviale et
               familiale, guidés par des professeurs passionnés.
@@ -129,6 +153,25 @@ export default function Home() {
               >
                 Découvrir nos cours
               </Link>
+            </div>
+
+            {/* Les trois soirs en un clin d'œil */}
+            <div className="reveal-up delay-600 mt-12 flex flex-wrap justify-center gap-3">
+              {[
+                { d: "Mardi", s: "Rock & Boogie" },
+                { d: "Mercredi", s: "Danses de salon" },
+                { d: "Jeudi", s: "Latino" },
+              ].map((c) => (
+                <Link
+                  key={c.d}
+                  href="/cours"
+                  className="glass rounded-full px-5 py-2.5 text-sm text-foreground/65 hover:text-foreground hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  <span className="font-semibold text-ciel-600">{c.d}</span>
+                  <span className="mx-2 text-foreground/25">·</span>
+                  {c.s}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -205,19 +248,19 @@ export default function Home() {
               <AnimatedSection delay={300}>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: <Heart size={18} />, label: "Ambiance familiale" },
-                    { icon: <Award size={18} />, label: "Profs certifiés" },
-                    { icon: <Users size={18} />, label: "Tous niveaux" },
-                    { icon: <Sparkles size={18} />, label: "Ligue de la Danse" },
+                    { icon: <Heart size={18} />, label: "Ambiance familiale", tint: "bg-rose-50 text-rose-500" },
+                    { icon: <Award size={18} />, label: "Profs certifiés", tint: "bg-ciel-50 text-ciel-500" },
+                    { icon: <Users size={18} />, label: "Tous niveaux", tint: "bg-ciel-50 text-ciel-500" },
+                    { icon: <Sparkles size={18} />, label: "Ligue de la Danse", tint: "bg-rose-50 text-rose-500" },
                   ].map((f) => (
                     <div
                       key={f.label}
-                      className="flex items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-ciel-500/65 to-rose-400/65 backdrop-blur-sm border border-white/20"
+                      className="flex items-center gap-3 p-4 rounded-2xl bg-white/70 border border-ciel-100/80 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
                     >
-                      <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                      <div className={`w-9 h-9 rounded-xl ${f.tint} flex items-center justify-center shrink-0`}>
                         {f.icon}
                       </div>
-                      <span className="text-sm font-medium text-white">{f.label}</span>
+                      <span className="text-sm font-semibold text-foreground/75">{f.label}</span>
                     </div>
                   ))}
                 </div>
@@ -226,6 +269,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Le couple du logo se croise entre les sections */}
+      <div className="relative py-8 overflow-hidden">
+        <FigureDeDanse figure="croise" />
+      </div>
 
       {/* ═══════════════ MARQUEE ═══════════════ */}
       <Marquee items={danceStyles} />
@@ -260,12 +308,13 @@ export default function Home() {
           {/* Course cards */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {courses.map((c, i) => (
-              <AnimatedSection key={c.number} delay={i * 120}>
-                <div
+              <AnimatedSection key={c.abbr} delay={i * 120} className="h-full">
+                <Link
+                  href="/cours"
                   className={`group relative rounded-[2rem] bg-gradient-to-br ${c.gradient} backdrop-blur-sm border border-white/20 p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-ciel-200/15 h-full flex flex-col`}
                 >
-                  <span className="absolute -top-4 -right-2 font-display text-[10rem] font-extrabold text-white/10 leading-none select-none">
-                    {c.number}
+                  <span className="absolute -top-6 -right-2 font-display text-[9rem] font-extrabold text-white/10 leading-none select-none tracking-tight">
+                    {c.abbr}
                   </span>
 
                   <div className="w-2 h-2 rounded-full bg-white/40 mb-6" />
@@ -275,13 +324,25 @@ export default function Home() {
                   </h3>
                   <p className="text-base text-white/70 mb-6">{c.subtitle}</p>
 
-                  <div className="mb-6">
-                    <p className="text-sm font-semibold text-white mb-1">{c.prof}</p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 rounded-lg bg-white/20 flex items-center justify-center">
+                  <div className="mb-6 flex items-center gap-3">
+                    <div className="flex -space-x-2 shrink-0">
+                      {c.photos.map((p) => (
+                        <Image
+                          key={p}
+                          src={p}
+                          alt={`Photo de ${c.prof}`}
+                          width={44}
+                          height={44}
+                          className="w-11 h-11 rounded-full object-cover ring-2 ring-white/50"
+                        />
+                      ))}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white mb-0.5">{c.prof}</p>
+                      <div className="flex items-center gap-1.5">
                         <Clock size={12} className="text-white/70" />
+                        <span className="text-sm text-white/70">{c.day} soir</span>
                       </div>
-                      <span className="text-sm text-white/70">{c.day} soir</span>
                     </div>
                   </div>
 
@@ -295,7 +356,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
@@ -320,17 +381,15 @@ export default function Home() {
         <div className="absolute -inset-x-1 -inset-y-0 grain" style={{ clipPath: "polygon(0 0, 100% 8%, 100% 92%, 0 100%)" }} />
 
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-y-0 lg:divide-x lg:divide-white/25">
             {stats.map((s, i) => (
               <AnimatedSection key={s.label} delay={i * 100}>
-                <div className="relative text-center p-8 rounded-[2rem] bg-white/15 border border-white/20 backdrop-blur-sm hover:-translate-y-1 hover:bg-white/25 transition-all duration-500 h-full flex flex-col items-center justify-center">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/20 text-white mb-5">
-                    {s.icon}
-                  </div>
-                  <div className="font-display text-4xl sm:text-5xl font-extrabold text-white mb-2">
+                <div className="text-center px-4 sm:px-8 flex flex-col items-center">
+                  <div className="text-white/70 mb-4">{s.icon}</div>
+                  <div className="font-display text-5xl sm:text-6xl font-extrabold text-white mb-2 tracking-tight">
                     <AnimatedCounter value={s.num} suffix={s.suffix} prefix={s.prefix} decimals={s.num % 1 !== 0 ? 1 : 0} />
                   </div>
-                  <p className="text-sm text-white/70 font-medium uppercase tracking-wider">
+                  <p className="text-sm text-white/75 font-medium uppercase tracking-[0.2em]">
                     {s.label}
                   </p>
                 </div>
@@ -358,6 +417,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-background to-frost/30" />
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          {/* Il la fait tourner avant d'entrer dans la saison */}
+          <div className="mb-10">
+            <FigureDeDanse figure="tour" />
+          </div>
           <AnimatedSection>
             <div className="text-center mb-16">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-3">
@@ -375,10 +438,10 @@ export default function Home() {
 
             <div className="space-y-10">
             {[
-              { date: "2–4 sept.", title: "Portes ouvertes", desc: "Venez essayer gratuitement", color: "from-ciel-500/65 to-ciel-400/65", float: "animate-float-gentle" },
-              { date: "16 oct.", title: "Soirée Halloween", desc: "Entraînement déguisé", color: "from-ciel-500/65 to-rose-400/65", float: "animate-float-slow" },
-              { date: "18 déc.", title: "Soirée de Noël", desc: "Ambiance festive", color: "from-ciel-500/65 to-rose-400/65", float: "animate-float-gentle" },
-              { date: "12 fév.", title: "Soirée Carnaval", desc: "Déguisement souhaité", color: "from-rose-400/65 to-ciel-500/65", float: "animate-float-slow" },
+              { date: "2–4 sept.", title: "Portes ouvertes", desc: "Venez essayer gratuitement", color: "from-ciel-500 to-ciel-400", float: "animate-float-gentle" },
+              { date: "16 oct.", title: "Soirée Halloween", desc: "Entraînement déguisé", color: "from-ciel-500 to-rose-400", float: "animate-float-slow" },
+              { date: "18 déc.", title: "Soirée de Noël", desc: "Ambiance festive", color: "from-ciel-500 to-rose-400", float: "animate-float-gentle" },
+              { date: "12 fév.", title: "Soirée Carnaval", desc: "Déguisement souhaité", color: "from-rose-400 to-ciel-500", float: "animate-float-slow" },
             ].map((e, i) => (
               <AnimatedSection key={e.title} delay={i * 120}>
                 <div className={`relative sm:flex sm:items-center ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}>
@@ -388,16 +451,16 @@ export default function Home() {
                   {/* Card */}
                   <div className={`ml-12 sm:ml-0 sm:w-[calc(50%-2rem)] ${i % 2 === 0 ? "sm:mr-auto sm:pr-8" : "sm:ml-auto sm:pl-8"}`}>
                     <div
-                      className={`group relative rounded-[1.5rem] bg-gradient-to-br ${e.color} backdrop-blur-sm p-7 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-ciel-100/20 border border-white/20 ${e.float}`}
+                      className={`group relative rounded-[1.5rem] bg-white/75 backdrop-blur-sm p-7 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-ciel-200/25 border border-ciel-100/80 shadow-[0_8px_30px_rgba(46,116,196,0.07)] ${e.float}`}
                       style={{ animationDelay: `${i * 2}s` }}
                     >
-                      <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-xs font-bold text-white uppercase tracking-wider mb-4">
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r ${e.color} text-xs font-bold text-white uppercase tracking-wider mb-4`}>
                         {e.date}
                       </span>
-                      <h3 className="font-display text-xl font-extrabold text-white mb-1">
+                      <h3 className="font-display text-xl font-extrabold text-foreground mb-1">
                         {e.title}
                       </h3>
-                      <p className="text-sm text-white/70">{e.desc}</p>
+                      <p className="text-sm text-foreground/50">{e.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -405,6 +468,21 @@ export default function Home() {
             ))}
             </div>
           </div>
+
+          <AnimatedSection delay={500}>
+            <p className="mt-14 text-center text-sm text-foreground/45">
+              Le reste du programme s&apos;écrit au fil de la saison —{" "}
+              <a
+                href="https://www.facebook.com/asbljydanse/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-ciel-500 hover:text-ciel-600 underline underline-offset-4 decoration-ciel-300/60 transition-colors"
+              >
+                suivez-le sur Facebook
+              </a>
+              .
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -446,15 +524,17 @@ export default function Home() {
                 info: "Membre depuis 5 ans",
               },
             ].map((t, i) => (
-              <AnimatedSection key={t.name} delay={i * 150}>
+              <AnimatedSection key={t.name} delay={i * 150} className={i === 1 ? "md:-translate-y-3" : ""}>
                 <div className="relative rounded-[2rem] bg-white/15 backdrop-blur-sm border border-white/20 p-8 h-full flex flex-col transition-all duration-500 hover:-translate-y-1 hover:bg-white/20">
-                  <Quote size={32} className="text-white/20 mb-4 scale-x-[-1]" />
+                  <Quote size={32} className="text-white/25 mb-4 scale-x-[-1]" />
                   <p className="text-base text-white/90 leading-relaxed mb-6 flex-1">
                     &laquo; {t.quote} &raquo;
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold text-white">
-                      {t.name[0]}
+                    <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center ring-2 ring-white/40">
+                      <span className="text-sm font-extrabold bg-gradient-to-br from-ciel-500 to-rose-400 bg-clip-text text-transparent">
+                        {t.name[0]}
+                      </span>
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">{t.name}</p>
@@ -473,36 +553,56 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-background to-frost/30" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-ciel-200/15 rounded-full blur-[160px]" />
 
-        <div className="relative text-center mx-auto max-w-3xl px-5 sm:px-8">
+        {/* La promenade finale, côte à côte */}
+        <div className="relative mb-10">
+          <FigureDeDanse figure="promenade" />
+        </div>
+
+        <div className="relative mx-auto max-w-3xl px-5 sm:px-8">
           <AnimatedSection>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-4">
-              Première leçon ? C&apos;est par ici
-            </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
-              Envie d&apos;essayer ?
-            </h2>
-            <p className="text-foreground/40 text-xl leading-relaxed mb-12 max-w-xl mx-auto font-light">
-              Portes ouvertes début septembre — venez découvrir l&apos;ambiance,
-              rencontrer nos professeurs. Gratuit et sans engagement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/inscription"
-                className="btn-shine group inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 hover:-translate-y-0.5"
-              >
-                Pré-inscription en ligne
-                <ArrowUpRight
-                  size={16}
-                  strokeWidth={2.5}
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-medium text-foreground/50 rounded-full border border-ciel-200/50 hover:border-ciel-300 hover:bg-frost/50 transition-all duration-500"
-              >
-                Nous contacter
-              </Link>
+            {/* Le carton d'invitation */}
+            <div className="glass-strong rounded-[3rem] px-6 sm:px-14 py-14 sm:py-16 text-center shadow-[0_24px_70px_rgba(46,116,196,0.14)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ciel-500 mb-4">
+                Première leçon ? C&apos;est par ici
+              </p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
+                Envie d&apos;essayer ?
+              </h2>
+              <p className="text-foreground/45 text-xl leading-relaxed mb-10 max-w-xl mx-auto font-light">
+                Portes ouvertes début septembre — venez découvrir l&apos;ambiance,
+                rencontrer nos professeurs. Gratuit et sans engagement.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/inscription"
+                  className="btn-shine group inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-semibold text-white bg-gradient-to-r from-ciel-500 via-ciel-400 to-rose-400 rounded-full hover:shadow-xl hover:shadow-ciel-300/25 transition-all duration-500 hover:-translate-y-0.5"
+                >
+                  Pré-inscription en ligne
+                  <ArrowUpRight
+                    size={16}
+                    strokeWidth={2.5}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-10 py-4.5 text-base font-medium text-foreground/50 rounded-full border border-ciel-200/50 hover:border-ciel-300 hover:bg-white/50 transition-all duration-500"
+                >
+                  Nous contacter
+                </Link>
+              </div>
+
+              {/* Les infos qui font venir */}
+              <div className="mt-10 pt-8 border-t border-ciel-100/70 flex flex-col sm:flex-row justify-center gap-x-10 gap-y-3 text-sm text-foreground/55">
+                <span className="inline-flex items-center justify-center gap-2">
+                  <Calendar size={15} className="text-ciel-500 shrink-0" />
+                  Portes ouvertes : 2, 3 et 4 septembre
+                </span>
+                <span className="inline-flex items-center justify-center gap-2">
+                  <MapPin size={15} className="text-rose-400 shrink-0" />
+                  Salle &laquo; Le Foyer &raquo;, rue Hanoteau 23, Gilly
+                </span>
+              </div>
             </div>
           </AnimatedSection>
         </div>
